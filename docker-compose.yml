@@ -1,0 +1,42 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      - POSTGRES_PASSWORD=Test123!
+    expose:
+      - 5432
+    networks:
+      - postgres-network
+
+  api:
+    build: ./Server
+    depends_on:
+      - postgres
+    networks:
+      - api-network
+      - postgres-network
+
+  client:
+    build: ./client
+    networks:
+      - client-network
+
+  reverse-proxy:
+    build: ./reverse-proxy
+    restart: always
+    ports:
+      - 8080:80
+    depends_on:
+      - client
+      - api
+    networks:
+      - client-network
+      - api-network
+
+
+networks:
+  postgres-network:
+  api-network:
+  client-network:
