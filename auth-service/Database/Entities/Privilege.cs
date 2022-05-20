@@ -1,0 +1,11 @@
+﻿namespace AuthService.Database.Entities
+{
+    public class Privilege
+    {
+        public Guid Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+
+        public List<Role> Roles { get; set; }
+    }
+}
