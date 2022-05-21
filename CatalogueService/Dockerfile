@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["AuthService.csproj", "auth-service/"]
-RUN dotnet restore "auth-service/AuthService.csproj"
-WORKDIR "/src/auth-service"
+COPY ["CatalogueService/CatalogueService.csproj", "CatalogueService/"]
+RUN dotnet restore "CatalogueService/CatalogueService.csproj"
 COPY . .
-RUN dotnet build "AuthService.csproj" -c Release -o /app/build
+WORKDIR "/src/CatalogueService"
+RUN dotnet build "CatalogueService.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "AuthService.csproj" -c Release -o /app/publish
+RUN dotnet publish "CatalogueService.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "AuthService.dll"]
+ENTRYPOINT ["dotnet", "CatalogueService.dll"]

@@ -10,12 +10,14 @@ services:
     networks:
       - postgres-network
 
-  api:
-    build: ./Server
+  auth-service:
+    build: ./auth-service
     depends_on:
       - postgres
+    environment:
+      - ConnectionStrings__AuthenticationDatabase=User ID=postgres;Password=Test123!;Host=postgres;Port=5432;Database=webshop_authentication;Pooling=true;Connection Lifetime=0;
     networks:
-      - api-network
+      - authentication-network
       - postgres-network
 
   client:
@@ -33,10 +35,20 @@ services:
       - api
     networks:
       - client-network
-      - api-network
+      - authentication-network
 
+  pgAdmin: 
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=postgres@pg.com
+      - PGADMIN_DEFAULT_PASSWORD=postgres
+    ports:
+      - 2345:80
+    networks:
+      - postgres-network
+    
 
 networks:
   postgres-network:
-  api-network:
+  authentication-network:
   client-network:
