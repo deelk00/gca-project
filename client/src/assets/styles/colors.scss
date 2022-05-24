@@ -1,0 +1,41 @@
+.bg-primary {
+    background-color: $primary;
+}
+
+.bg-primary-contrast {
+    background-color: $primary-contrast;
+}
+
+.color-primary {
+    color: $primary;
+}
+
+.color-primary-contrast {
+    color: $primary-contrast;
+}
+
+.bg-secondary {
+    background-color: $secondary;
+}
+
+.bg-secondary-contrast {
+    background-color: $secondary-contrast;
+}
+
+.color-secondary {
+    color: $secondary;
+}
+
+.color-secondary-contrast {
+    color: $secondary-contrast;
+}
+
+.style-primary {
+    background-color: $primary;
+    color: $primary-contrast;
+}
+
+.style-secondary {
+    background-color: $secondary;
+    color: $secondary-contrast;
+}

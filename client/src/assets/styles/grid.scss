@@ -1,0 +1,26 @@
+.row {
+    width: 100%;
+    display: block;
+}
+
+@for $i from 1 through 12 {
+    .col-#{$i} {
+        width: $grid-column-width * $i;
+    }
+    .offset-#{$i} {
+        margin-left: $grid-column-width * $i;
+    }
+}
+
+@each $size-name in $grid-size-names {
+    @media (min-width: map-get($grid-size, $size-name)) {
+        @for $i from 1 through 12 {
+            .col-#{$size-name}-#{$i} {
+                width: $grid-column-width * $i;
+            }
+            .offset-#{$size-name}-#{$i} {
+                margin-left: $grid-column-width * $i;
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+$primary: #dde0ee;
+$secondary: #00ff00;
+
+$primary-contrast: #222d33;
+$secondary-contrast: #dde0ee;
+
+$grid-column-width: 100% / 12;
+
+$grid-size-names: sm, md, lg, xl, xxl;
+
+$grid-size: (
+    sm: 400px,
+    md: 700px,
+    lg: 1050px,
+    xl: 1450px,
+    xxl: 1900px
+);
+
+$style-spacing: (
+    0: 0px,
+    1: 4px,
+    2: 8px,
+    3: 16px,
+    4: 32px,
+    5: 64px
+);

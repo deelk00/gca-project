@@ -1,0 +1,220 @@
+
+.p-auto {
+    padding: auto;
+}
+.m-auto {
+    margin: auto;
+}
+
+.pl-auto {
+    padding-left: auto;
+}
+.ml-auto {
+    margin-left: auto;
+}
+
+.pr-auto {
+    padding-right: auto;
+}
+.mr-auto {
+    margin-right: auto;
+}
+
+.pt-auto {
+    padding-top: auto;
+}
+.mt-auto {
+    margin-top: auto;
+}
+
+.pb-auto {
+    padding-bottom: auto;
+}
+.mb-auto {
+    margin-bottom: auto;
+}
+
+.px-auto {
+    padding-left: auto;
+    padding-right: auto;
+}
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.py-auto {
+    padding-top: auto;
+    padding-bottom: auto;
+}
+.my-auto {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+@for $i from 0 through 5 {
+    .p-#{$i} {
+        padding: map-get($map: $style-spacing, $key: $i);
+    }
+    .m-#{$i} {
+        margin: map-get($map: $style-spacing, $key: $i);
+    }
+
+    .pl-#{$i} {
+        padding-left: map-get($map: $style-spacing, $key: $i);
+    }
+    .ml-#{$i} {
+        margin-left: map-get($map: $style-spacing, $key: $i);
+    }
+
+    .pr-#{$i} {
+        padding-right: map-get($map: $style-spacing, $key: $i);
+    }
+    .mr-#{$i} {
+        margin-right: map-get($map: $style-spacing, $key: $i);
+    }
+    
+    .pt-#{$i} {
+        padding-top: map-get($map: $style-spacing, $key: $i);
+    }
+    .mt-#{$i} {
+        margin-top: map-get($map: $style-spacing, $key: $i);
+    }
+    
+    .pb-#{$i} {
+        padding-bottom: map-get($map: $style-spacing, $key: $i);
+    }
+    .mb-#{$i} {
+        margin-bottom: map-get($map: $style-spacing, $key: $i);
+    }
+
+    .px-#{$i} {
+        padding-left: map-get($map: $style-spacing, $key: $i);
+        padding-right: map-get($map: $style-spacing, $key: $i);
+    }
+    .mx-#{$i} {
+        margin-left: map-get($map: $style-spacing, $key: $i);
+        margin-right: map-get($map: $style-spacing, $key: $i);
+    }
+
+    .py-#{$i} {
+        padding-top: map-get($map: $style-spacing, $key: $i);
+        padding-bottom: map-get($map: $style-spacing, $key: $i);
+    }
+    .my-#{$i} {
+        margin-top: map-get($map: $style-spacing, $key: $i);
+        margin-bottom: map-get($map: $style-spacing, $key: $i);
+    }
+}
+
+@each $size-name in $grid-size-names {
+    @media (min-width: map-get($grid-size, $size-name)) {
+        .p-#{$size-name}-auto {
+            padding: auto;
+        }
+        .m-#{$size-name}-auto {
+            margin: auto;
+        }
+        
+        .pl-#{$size-name}-auto {
+            padding-left: auto;
+        }
+        .ml-#{$size-name}-auto {
+            margin-left: auto;
+        }
+        
+        .pr-#{$size-name}-auto {
+            padding-right: auto;
+        }
+        .mr-#{$size-name}-auto {
+            margin-right: auto;
+        }
+        
+        .pt-#{$size-name}-auto {
+            padding-top: auto;
+        }
+        .mt-#{$size-name}-auto {
+            margin-top: auto;
+        }
+        
+        .pb-#{$size-name}-auto {
+            padding-bottom: auto;
+        }
+        .mb-#{$size-name}-auto {
+            margin-bottom: auto;
+        }
+        
+        .px-#{$size-name}-auto {
+            padding-left: auto;
+            padding-right: auto;
+        }
+        .mx-#{$size-name}-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .py-#{$size-name}-auto {
+            padding-top: auto;
+            padding-bottom: auto;
+        }
+        .my-#{$size-name}-auto {
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        @for $i from 0 through 5 {
+            .p-#{$size-name}-#{$i} {
+                padding: map-get($map: $style-spacing, $key: $i);
+            }
+            .m-#{$size-name}-#{$i} {
+                margin: map-get($map: $style-spacing, $key: $i);
+            }
+        
+            .pl-#{$size-name}-#{$i} {
+                padding-left: map-get($map: $style-spacing, $key: $i);
+            }
+            .ml-#{$size-name}-#{$i} {
+                margin-left: map-get($map: $style-spacing, $key: $i);
+            }
+        
+            .pr-#{$size-name}-#{$i} {
+                padding-right: map-get($map: $style-spacing, $key: $i);
+            }
+            .mr-#{$size-name}-#{$i} {
+                margin-right: map-get($map: $style-spacing, $key: $i);
+            }
+            
+            .pt-#{$size-name}-#{$i} {
+                padding-top: map-get($map: $style-spacing, $key: $i);
+            }
+            .mt-#{$size-name}-#{$i} {
+                margin-top: map-get($map: $style-spacing, $key: $i);
+            }
+            
+            .pb-#{$size-name}-#{$i} {
+                padding-bottom: map-get($map: $style-spacing, $key: $i);
+            }
+            .mb-#{$size-name}-#{$i} {
+                margin-bottom: map-get($map: $style-spacing, $key: $i);
+            }
+        
+            .px-#{$size-name}-#{$i} {
+                padding-left: map-get($map: $style-spacing, $key: $i);
+                padding-right: map-get($map: $style-spacing, $key: $i);
+            }
+            .mx-#{$size-name}-#{$i} {
+                margin-left: map-get($map: $style-spacing, $key: $i);
+                margin-right: map-get($map: $style-spacing, $key: $i);
+            }
+        
+            .py-#{$size-name}-#{$i} {
+                padding-top: map-get($map: $style-spacing, $key: $i);
+                padding-bottom: map-get($map: $style-spacing, $key: $i);
+            }
+            .my-#{$size-name}-#{$i} {
+                margin-top: map-get($map: $style-spacing, $key: $i);
+                margin-bottom: map-get($map: $style-spacing, $key: $i);
+            }
+        }
+    }
+}
