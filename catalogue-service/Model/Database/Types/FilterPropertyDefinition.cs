@@ -8,6 +8,6 @@ public class FilterPropertyDefinition
     public string Name { get; set; }
     public FilterPropertyValueType ValueType { get; set; }
 
-    public List<FilterProperty> FilterProperties { get; set; }
-    public List<ProductCategory> ProductCategories { get; set; }
+    public List<FilterProperty>? FilterProperties { get; set; }
+    public List<ProductCategory>? ProductCategories { get; set; }
 }

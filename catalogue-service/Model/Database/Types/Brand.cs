@@ -9,5 +9,5 @@ public class Brand
     public Guid ImageId { get; set; }
     public string Name { get; set; }
 
-    public Image Image { get; set; }
+    public Image? Image { get; set; }
 }

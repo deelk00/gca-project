@@ -7,6 +7,6 @@ public class FilterProperty
     public Guid FilterPropertyDefinitionId { get; set; }
     public string Value { get; set; }
 
-    public Product Product { get; set; }
-    public FilterPropertyDefinition FilterPropertyDefinition { get; set; }
+    public Product? Product { get; set; }
+    public FilterPropertyDefinition? FilterPropertyDefinition { get; set; }
 }

@@ -14,7 +14,7 @@ public class Product
     public Gender Gender { get; set; }
     public decimal Price { get; set; }
 
-    public ProductCategory ProductCategory { get; set; }
-    public List<Tag> Tags { get; set; }
-    public List<FilterProperty> FilterProperties { get; set; }
+    public ProductCategory? ProductCategory { get; set; }
+    public List<Tag>? Tags { get; set; }
+    public List<FilterProperty>? FilterProperties { get; set; }
 }
