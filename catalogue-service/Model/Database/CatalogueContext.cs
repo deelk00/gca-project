@@ -1,7 +1,7 @@
 ﻿using CatalogueService.Model.Database.Types;
 using Microsoft.EntityFrameworkCore;
 
-namespace CatalogueService.Model
+namespace CatalogueService.Model.Database
 {
     public class CatalogueContext : DbContext
     {
@@ -12,6 +12,8 @@ namespace CatalogueService.Model
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<Tag> Tags { get; set; }
+        public DbSet<DatabaseImage> DatabaseImages { get; set; }
+        public DbSet<Currency> Currencies { get; set; }
         
         public CatalogueContext() { }
         public CatalogueContext(DbContextOptions<CatalogueContext> options) : base(options) { }

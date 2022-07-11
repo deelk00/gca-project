@@ -15,27 +15,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1bd7b547-b415-4a63-8fee-62a51cdd65af" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/catalogue-service/Model/Database/Enums/FilterPropertyValueType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalogue-service/Model/Database/Enums/UnifiedSize.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/Brand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/FilterProperty.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/FilterPropertyDefinition.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/Image.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/Tag.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Server/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Server/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Server/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Server/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Utility/Api/CrudController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Utility/Api/ManyToManyRelationShipController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Utility/Other/Enums/HashAlgorithm.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Utility/Other/Enums/ImageType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Utility/Other/Enums/NamingConvention.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Utility/Other/Enums/ToResponseDictOptions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Utility/Other/ExpressionBuilder.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Utility/Other/ExpressionExecuter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Utility/Other/Extensions/ByteArrayExtension.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Utility/Other/Extensions/ObjectExtension.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Utility/Other/Extensions/StringExtension.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/Controllers/BrandsController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/Controllers/CurrenciesController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/Controllers/FilterPropertiesController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/Controllers/FilterPropertyDefinitionsController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/Controllers/ImagesController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/Controllers/ProductCategoriesController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/Controllers/ProductsController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/Controllers/Relations/BrandsProductsController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/Controllers/TagsController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/Currency.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/DatabaseImage.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utility/EFCore/DbContextExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Utility/EFCore/DbContextExtension.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Utility/Utility.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Utility/Utility.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cart-service/CartService.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/CartService.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/catalogue-service/CatalogueService.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/CatalogueService.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalogue-service/Controllers/WeatherForecastController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalogue-service/Model/CatalogueContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/Model/CatalogueContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/Model/CatalogueContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/Model/Database/CatalogueContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/Brand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/Brand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/FilterProperty.cs" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/FilterProperty.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/FilterPropertyDefinition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/FilterPropertyDefinition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/Image.cs" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/Image.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/Product.cs" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/Product.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/ProductCategory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/ProductCategory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/ProductSubCategory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/ProductType.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalogue-service/WeatherForecast.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/Tag.cs" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/Tag.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/appsettings.Development.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/checkout-service/CheckoutService.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/checkout-service/CheckoutService.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/documentation/catalogue-service er diagram.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/catalogue-service er diagram.drawio" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shipping-service/ShippingService.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/shipping-service/ShippingService.csproj" afterDir="false" />
@@ -47,6 +64,10 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ce97cce1c8751784d3c11a71438382de60495a5294862c55163d6db935b2ca/Utilities.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d9d9faea5e6ed6438a777ef8c6eed41261f81d8e86488ed923ad92564f54e/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -68,10 +89,11 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.CartService">
+  <component name="RunManager" selected=".NET Launch Settings Profile.CatalogueService">
     <configuration name="CartService" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/cart-service/CartService.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net6.0" />
@@ -201,7 +223,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1657019001088</updated>
-      <workItem from="1657019019548" duration="9324000" />
+      <workItem from="1657019019548" duration="52633000" />
     </task>
     <servers />
   </component>
@@ -223,5 +245,24 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Utility/Other/ExpressionBuilder.cs</url>
+          <line>27</line>
+          <properties documentPath="E:\abc\gca-project\Utility\Other\ExpressionBuilder.cs" initialLine="27" containingFunctionPresentation="method 'BuildPropertySetExpression'">
+            <startOffsets>
+              <option value="1018" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1071" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

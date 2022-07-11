@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Query;
+using Utility.Other.Extensions;
 
 namespace Utility.EFCore
 {
@@ -35,7 +37,12 @@ namespace Utility.EFCore
             }
         }
 
-        public static async Task<T> TransactionAsync<T>(this DbContext context, Func<IDbContextTransaction, Task<EntityEntry<T>>> action)
+        public static Task<T> TransactionAsync<T>(this DbContext context,
+            Func<IDbContextTransaction, EntityEntry<T>> action)
+            where T : class 
+            => TransactionAsync(context, async transaction => action(transaction));
+        
+        public static async Task<T> TransactionAsync<T>(this DbContext context, Func<IDbContextTransaction, ValueTask<EntityEntry<T>>> action)
             where T : class
         {
             var transaction = await context.Database.BeginTransactionAsync();
@@ -54,6 +61,15 @@ namespace Utility.EFCore
                 await transaction.RollbackAsync();
                 throw;
             }
+        }
+
+        public static IQueryable<T> IncludeComplexTypes<T>(this DbContext context)
+            where T : class
+        {
+            var complexEntityNames = context.GetAdjacentEntityTables().Select(x => x.Name);
+            var query = context.Set<T>() as IQueryable<T>;
+            query = complexEntityNames.Aggregate(query, (current, name) => current.Include(name));
+            return query;
         }
     }
 }
