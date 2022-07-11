@@ -5,22 +5,26 @@ services:
     image: postgres:latest
     environment:
       - POSTGRES_PASSWORD=Test123!
-    expose:
-      - 5432
+    ports:
+      - 5432:5432
     networks:
       - postgres-network
 
-  auth-service:
-    build: ./auth-service
+  catalogue-service:
+    build: 
+      context: ./
+      dockerfile: ./catalogue-service/Dockerfile
     depends_on:
       - postgres
     environment:
-      - ConnectionStrings__AuthenticationDatabase=User ID=postgres;Password=Test123!;Host=postgres;Port=5432;Database=webshop_authentication;Pooling=true;Connection Lifetime=0;
+      - ConnectionStrings__salamdo_catalogue=User ID=postgres;Password=Test123!;Host=postgres;Port=5432;Database=salamdo_catalogue;Pooling=true;Connection Lifetime=0;
+    ports:
+      - 5000:80
     networks:
-      - authentication-network
+      - catalogue-network
       - postgres-network
 
-  client:
+  client-service:
     build: ./client
     networks:
       - client-network
@@ -32,10 +36,12 @@ services:
       - 8080:80
     depends_on:
       - client
-      - api
+      - catalogue-service
+      - pgAdmin
     networks:
       - client-network
-      - authentication-network
+      - catalogue-network
+      - pgAdmin-network
 
   pgAdmin: 
     image: dpage/pgadmin4
@@ -45,10 +51,12 @@ services:
     ports:
       - 2345:80
     networks:
+      - pgAdmin-network
       - postgres-network
     
 
 networks:
   postgres-network:
-  authentication-network:
+  catalogue-network:
   client-network:
+  pgAdmin-network:
