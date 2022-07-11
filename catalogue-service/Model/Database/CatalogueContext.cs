@@ -5,6 +5,9 @@ namespace CatalogueService.Model.Database
 {
     public class CatalogueContext : DbContext
     {
+<<<<<<< HEAD
+
+=======
         public DbSet<Brand> Brands { get; set; }
         public DbSet<FilterProperty> FilterProperties { get; set; }
         public DbSet<FilterPropertyDefinition> FilterPropertyDefinitions { get; set; }
@@ -32,5 +35,6 @@ namespace CatalogueService.Model.Database
         {
             base.OnModelCreating(modelBuilder);
         }
+>>>>>>> 6099a1ccef0051b1269f63286f0325e7750a87ce
     }
 }
