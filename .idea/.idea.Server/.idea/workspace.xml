@@ -27,6 +27,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ce97cce1c8751784d3c11a71438382de60495a5294862c55163d6db935b2ca/Utilities.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d9d9faea5e6ed6438a777ef8c6eed41261f81d8e86488ed923ad92564f54e/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
