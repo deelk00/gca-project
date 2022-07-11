@@ -4,5 +4,6 @@ namespace CatalogueService.Model
 {
     public class CatalogueContext : DbContext
     {
+
     }
 }
