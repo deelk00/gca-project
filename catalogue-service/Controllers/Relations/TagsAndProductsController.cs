@@ -7,9 +7,9 @@ namespace CatalogueService.Controllers.Relations;
 
 [ApiController]
 [Route("relations/tags-and-products")]
-public class BrandsProductsController : ManyToManyRelationShipController<Tag, Product>
+public class TagsAndProductsController : ManyToManyRelationShipController<Tag, Product>
 {
-    public BrandsProductsController(DbContext context) : base(context, "Products", "Tags")
+    public TagsAndProductsController(DbContext context) : base(context, "Products", "Tags")
     {
     }
 }
