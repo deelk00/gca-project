@@ -112,7 +112,6 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "XThreadsFramesViewSplitterKey": "0.50457317",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -121,7 +120,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.CatalogueService">
+  <component name="RunManager" selected=".NET Launch Settings Profile.Server">
     <configuration name="AuthService: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/auth-service/AuthService.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net6.0" />
@@ -326,10 +325,8 @@
       <option name="presentableId" value="Default" />
       <updated>1654175358588</updated>
       <workItem from="1654175376781" duration="524000" />
-      <workItem from="1654176065039" duration="1210000" />
-      <workItem from="1657619602663" duration="157000" />
-      <workItem from="1657619854559" duration="723000" />
-      <workItem from="1657625410081" duration="18165000" />
+      <workItem from="1654176065039" duration="1216000" />
+      <workItem from="1654457024237" duration="12224000" />
     </task>
     <servers />
   </component>
