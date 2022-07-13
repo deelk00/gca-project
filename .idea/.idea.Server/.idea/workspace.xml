@@ -17,7 +17,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6689809b-0268-480a-8ee8-e00abd11e88f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Utility/Graph/Attributes/GraphNameAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Utility/Graph/GraphType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Utility/Graph/ModelGraph.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Utility/Graph/TypeExtension.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Utility/Helper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/Model/Database/Enums/FilterValueType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/FilterProperty.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/FilterPropertyDefinition.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/Tag.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart-service/CartService.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/cart-service/CartService.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/CatalogueService.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/CatalogueService.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/Controllers/WeatherForecastController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/Model/CatalogueContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/Model/CatalogueContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/Product.cs" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/Product.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/ProductCategory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/ProductCategory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/ProductSubCategory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/Model/Database/Types/ProductType.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/WeatherForecast.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkout-service/CheckoutService.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/checkout-service/CheckoutService.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/catalogue-service er diagram.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/catalogue-service er diagram.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shipping-service/ShippingService.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/shipping-service/ShippingService.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +48,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a09e42d0d8f444b7b16c624da188bb4f9aa939eae8ccbe98ea49b27b99d3a/ValueType.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -38,18 +63,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Server">
     <configuration name="AuthService: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/auth-service/AuthService.csproj" />
@@ -241,7 +267,8 @@
       <option name="presentableId" value="Default" />
       <updated>1654175358588</updated>
       <workItem from="1654175376781" duration="524000" />
-      <workItem from="1654176065039" duration="1210000" />
+      <workItem from="1654176065039" duration="1216000" />
+      <workItem from="1654457024237" duration="12224000" />
     </task>
     <servers />
   </component>
