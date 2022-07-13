@@ -12,9 +12,9 @@ export class ProductCategory {
   productIds: string[];
   filterPropertyDefinitionIds: string[];
 
-  get parentCategory(): ProductCategory {}
-  get tags(): Tag[] {}
-  get childCategories(): ProductCategory[] {}
-  get products(): Product[] {}
-  get filterPropertyDefinitions(): FilterPropertyDefinition[] {}
+  parentCategory?: ProductCategory;
+  tags?: Tag[];
+  childCategories?: ProductCategory[];
+  products?: Product[];
+  filterPropertyDefinitions?: FilterPropertyDefinition[];
 }

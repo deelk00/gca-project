@@ -6,9 +6,9 @@ export class FilterPropertyDefinition {
   id: string;
   name: string;
   valueType: FilterPropertyValueType;
-  filterPropertyIds: FilterProperty[];
-  productCategoryIds: ProductCategory[];
+  filterPropertyIds: string[];
+  productCategoryIds: string[];
 
-  get filterPropertyDefinitions(): FilterPropertyDefinition[] {}
-  get productCategories(): ProductCategory[] {}
+  filterProperties?: FilterProperty[];
+  productCategories?: ProductCategory[];
 }

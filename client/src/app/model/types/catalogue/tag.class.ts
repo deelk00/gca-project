@@ -7,7 +7,6 @@ export class Tag {
   productIds: string[];
   productCategoryIds: string[];
 
-  get products(): Product[] {}
-  get productCategories(): ProductCategory[] {}
-
+  products?: Product[];
+  productCategories?: ProductCategory[];
 }

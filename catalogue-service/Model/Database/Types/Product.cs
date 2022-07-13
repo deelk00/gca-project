@@ -29,5 +29,6 @@ public class Product
     public ProductCategory? ProductCategory { get; set; }
     public List<Tag>? Tags { get; set; }
     public List<FilterProperty>? FilterProperties { get; set; }
+    public List<ProductImage>? ProductImages { get; set; }
     public Brand? Brand { get; set; }
 }

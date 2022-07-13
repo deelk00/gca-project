@@ -7,7 +7,5 @@ export class Currency {
   symbol: string;
   productIds: string[];
 
-  get products(): Product[] {
-
-  }
+  products?: Product[];
 }

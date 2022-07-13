@@ -63,12 +63,12 @@ namespace Utility.EFCore
             }
         }
 
-        public static IQueryable<T> IncludeComplexTypes<T>(this DbContext context)
+        public static IQueryable<T> IncludeComplexTypes<T>(this IQueryable<T> query)
             where T : class
         {
-            var complexEntityNames = context.GetAdjacentEntityTables().Select(x => x.Name);
-            var query = context.Set<T>() as IQueryable<T>;
-            query = complexEntityNames.Aggregate(query, (current, name) => current.Include(name));
+            var t = typeof(T);
+            var complexEntityNames = query.GetAdjacentEntityTables();
+            query = complexEntityNames.Select(x => x.Name).Aggregate(query, (current, name) => current.Include(name));
             return query;
         }
     }

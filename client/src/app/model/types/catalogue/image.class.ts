@@ -8,7 +8,5 @@ export class CatalogueImage {
   databaseImageId: string;
   brandIds: string[];
 
-  get brands(): Brand[] {
-
-  }
+  brands?: Brand[];
 }

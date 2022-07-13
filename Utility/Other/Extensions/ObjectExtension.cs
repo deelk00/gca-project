@@ -31,13 +31,13 @@ public static class ObjectExtension
                 p.GetCustomAttribute<NotMappedAttribute>() == null
                 && p.GetCustomAttribute<JsonIgnoreAttribute>() == null
             )
-            .Where(p => !(!p.PropertyType.IsAssignableTo(typeof(IEnumerable))
+            .Where(p => (!(!p.PropertyType.IsAssignableTo(typeof(IEnumerable))
                           || !p.PropertyType.IsGenericType
-                          || p.PropertyType.GetGenericArguments()[0].Namespace?.StartsWith("System") == true))
+                          || p.PropertyType.GetGenericArguments()[0].Namespace?.StartsWith("System") == true)) && p.Name != "Local")
             .ToList();
     }
 
-    public static object ToResponseDict(this object entity)
+    public static object ToResponseDict(this object entity, ToResponseDictOptions options = ToResponseDictOptions.EntitiesToIds)
     {
         var entityType = entity.GetType();
         var properties = entityType
@@ -73,8 +73,16 @@ public static class ObjectExtension
         foreach (var table in tables)
         {
             if(table.GetValue(entity) is not IEnumerable list) continue;
-            var ids = (from dynamic l in list select l.Id).Cast<Guid>().ToList();
-            resultDict.Add(table.Name, ids);
+            if (options.HasFlag(ToResponseDictOptions.EntitiesToIds))
+            {
+                var ids = (from dynamic l in list select l.Id).Cast<Guid>().ToList();
+                resultDict.Add(table.Name, ids);
+            }
+            else
+            {
+                var entities = (from object l in list select ToResponseDict(l)).ToList();
+                resultDict.Add(table.Name, entities);
+            }
         }
         
         return resultDict;
