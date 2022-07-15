@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Linq.Expressions;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Utility.EFCore;
 using Utility.Other;
 using Utility.Other.Extensions;
 
-namespace Utility.Api;
+namespace Utility.Api.Controllers;
 
 public abstract class ManyToManyRelationShipController<TFirst, TSecond> : Controller
     where TFirst: class

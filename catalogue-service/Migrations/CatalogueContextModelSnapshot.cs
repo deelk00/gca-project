@@ -262,6 +262,37 @@ namespace CatalogueService.Migrations
                     b.ToTable("product_categories", (string)null);
                 });
 
+            modelBuilder.Entity("CatalogueService.Model.Database.Types.ProductImage", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
+
+                    b.Property<Guid>("ImageId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("image_id");
+
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("product_id");
+
+                    b.Property<byte>("index")
+                        .HasColumnType("smallint")
+                        .HasColumnName("index");
+
+                    b.HasKey("Id")
+                        .HasName("pk_product_image");
+
+                    b.HasIndex("ImageId")
+                        .HasDatabaseName("ix_product_image_image_id");
+
+                    b.HasIndex("ProductId")
+                        .HasDatabaseName("ix_product_image_product_id");
+
+                    b.ToTable("product_image", (string)null);
+                });
+
             modelBuilder.Entity("CatalogueService.Model.Database.Types.Tag", b =>
                 {
                     b.Property<Guid>("Id")
@@ -422,6 +453,27 @@ namespace CatalogueService.Migrations
                     b.Navigation("ParentCategory");
                 });
 
+            modelBuilder.Entity("CatalogueService.Model.Database.Types.ProductImage", b =>
+                {
+                    b.HasOne("CatalogueService.Model.Database.Types.Image", "Image")
+                        .WithMany("ProductImages")
+                        .HasForeignKey("ImageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_product_image_images_image_id");
+
+                    b.HasOne("CatalogueService.Model.Database.Types.Product", "Product")
+                        .WithMany("ProductImages")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_product_image_products_product_id");
+
+                    b.Navigation("Image");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("FilterPropertyDefinitionProductCategory", b =>
                 {
                     b.HasOne("CatalogueService.Model.Database.Types.FilterPropertyDefinition", null)
@@ -491,11 +543,15 @@ namespace CatalogueService.Migrations
             modelBuilder.Entity("CatalogueService.Model.Database.Types.Image", b =>
                 {
                     b.Navigation("Brands");
+
+                    b.Navigation("ProductImages");
                 });
 
             modelBuilder.Entity("CatalogueService.Model.Database.Types.Product", b =>
                 {
                     b.Navigation("FilterProperties");
+
+                    b.Navigation("ProductImages");
                 });
 
             modelBuilder.Entity("CatalogueService.Model.Database.Types.ProductCategory", b =>

@@ -4,13 +4,13 @@
 
 const environment = {
   production: false,
-  host: "http://localhost:8080/",
+  host: "https://localhost:5001",
   urls: {
     catalogue: ""
   }
 };
 
-environment.urls.catalogue = new URL("api/catalogue", environment.host).href;
+environment.urls.catalogue = new URL(".", environment.host).href;
 
 export {
   environment

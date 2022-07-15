@@ -1,5 +1,7 @@
 import { CatalogueImage } from "./image.class";
 import { Product } from "./product.class";
+import {CrudService} from "../../../services/rest-client/crud.service";
+import {CatalogueImageTypeDef} from "../../type-defs/catalogue/catalogue-image-type-def.class";
 
 export class Brand {
   id: string;
@@ -7,11 +9,6 @@ export class Brand {
   name: string;
   productIds: string[];
 
-  get image(): CatalogueImage {
-
-  }
-
-  get products(): Product[] {
-
-  }
+  image?: CatalogueImage;
+  products?: Product[];
 }

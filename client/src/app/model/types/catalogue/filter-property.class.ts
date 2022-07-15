@@ -7,8 +7,6 @@ export class FilterProperty {
   filterPropertyDefinitionId: string;
   value: string;
 
-  get product(): Product {}
-  get filterPropertyDefinition(): FilterPropertyDefinition {
-
-  }
+  product?: Product;
+  filterPropertyDefinition?: FilterPropertyDefinition;
 }

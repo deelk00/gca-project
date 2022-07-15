@@ -1,6 +1,7 @@
 using CatalogueService.Model;
 using CatalogueService.Model.Database;
 using Microsoft.EntityFrameworkCore;
+using Utility.Api.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +12,18 @@ builder.Services.AddDbContext<CatalogueContext>(options =>
     );
 
 builder.Services.AddTransient<DbContext>(sp => sp.GetRequiredService<CatalogueContext>());
-
+builder.Services.AddCors(options =>
+{
+    if (builder.Environment.IsDevelopment())
+    {
+        options.AddDefaultPolicy(b =>
+        {
+            b.AllowAnyMethod();
+            b.AllowAnyHeader();
+            b.WithOrigins("*");
+        });
+    }
+});
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -25,9 +37,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
 app.UseHttpsRedirection();
 
+app.UseCors();
+
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

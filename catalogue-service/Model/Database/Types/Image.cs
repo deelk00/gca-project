@@ -11,4 +11,5 @@ public class Image
     
     public DatabaseImage? DatabaseImage { get; set; }
     public List<Brand>? Brands { get; set; }
+    public List<ProductImage>? ProductImages { get; set; }
 }

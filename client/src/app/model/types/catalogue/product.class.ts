@@ -18,9 +18,9 @@ export class Product {
   tagIds: string[];
   filterPropertyIds: string[];
 
-  get currency(): Currency {}
-  get productCategory(): ProductCategory {}
-  get tags(): Tag[] {}
-  get filterProperties(): FilterProperty[] {}
-  get brand(): Brand {}
+  currency?: Currency;
+  productCategory?: ProductCategory;
+  tags?: Tag[];
+  filterProperties?: FilterProperty[];
+  brand?: Brand;
 }

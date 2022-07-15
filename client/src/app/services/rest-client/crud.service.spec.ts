@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { RestClientService } from './rest-client.service';
+import { CrudService } from './crud.service';
 
 describe('RestClientService', () => {
-  let service: RestClientService;
+  let service: CrudService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(RestClientService);
+    service = TestBed.inject(CrudService);
   });
 
   it('should be created', () => {
