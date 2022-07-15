@@ -1,0 +1,17 @@
+[
+    {
+        "id": "49ac78f4-1ec3-477d-afaf-8d49e1bbffa5",
+        "imageId": "ad3c21df-d373-45a1-8064-83a45acde62f",
+        "name": "Adidas"
+    },
+    {
+        "id": "a1aac5ad-51ac-47a0-b2bc-2d655e9a10c9",
+        "imageId": "3dc5b376-7e0e-4088-94f4-bea7b48b7d36",
+        "name": "Nike"
+    },
+    {
+        "id": "8f2f0ff9-823e-4e4d-92bc-1b51d3b4eb86",
+        "imageId": "99a57998-d524-4d3c-b928-1101ac79fbe7",
+        "name": "Puma"
+    }
+]

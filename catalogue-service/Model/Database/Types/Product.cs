@@ -20,8 +20,7 @@ public class Product
     public Guid CurrencyId { get; set; }
     
     [ForeignKey(nameof(Brand))]
-    [Required]
-    public Guid BrandId { get; set; }
+    public Guid? BrandId { get; set; }
     
     public string Name { get; set; }
     public uint Stock { get; set; }

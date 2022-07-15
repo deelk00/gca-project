@@ -1,0 +1,42 @@
+[
+    {
+        "id": "303394a7-1b55-4ebf-b510-16c625f18eae",
+        "name": "Hosen"
+    },
+    {
+        "id": "76ab067a-65bb-4559-9622-00809b668078",
+        "name": "Jacken"
+    },
+
+    {
+        "id": "714ea060-d1df-4445-95a9-33bc2893b8e1",
+        "name": "Jeans",
+        "parentCategoryId": "303394a7-1b55-4ebf-b510-16c625f18eae"
+    },
+    {
+        "id": "d08909a6-3706-4d17-b66b-53852da1c75d",
+        "name": "Shorts",
+        "parentCategoryId": "303394a7-1b55-4ebf-b510-16c625f18eae"
+    },
+    {
+        "id": "2c4983e9-9b08-499e-aa79-479dc0f111b5",
+        "name": "Anzug-Hosen",
+        "parentCategoryId": "303394a7-1b55-4ebf-b510-16c625f18eae"
+    },
+
+    {
+        "id": "24ee38bf-92fb-45db-a59a-f91cac9aa46b",
+        "name": "Regen-Jacken",
+        "parentCategoryId": "76ab067a-65bb-4559-9622-00809b668078"
+    },
+    {
+        "id": "f44064c7-2d54-4576-9428-adcaae63340f",
+        "name": "Leder-Jacken",
+        "parentCategoryId": "76ab067a-65bb-4559-9622-00809b668078"
+    },
+    {
+        "id": "1414533e-25b2-46c2-9aee-0cc73db6924d",
+        "name": "Jeans-Jacken",
+        "parentCategoryId": "76ab067a-65bb-4559-9622-00809b668078"
+    }
+]

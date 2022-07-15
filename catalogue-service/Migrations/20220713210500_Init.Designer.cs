@@ -12,7 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CatalogueService.Migrations
 {
     [DbContext(typeof(CatalogueContext))]
+<<<<<<< HEAD:catalogue-service/Migrations/20220713210500_Init.Designer.cs
     [Migration("20220713210500_Init")]
+=======
+    [Migration("20220715225320_Init")]
+>>>>>>> ce27d7260a339efbcb9e7196d124bc40013ee148:catalogue-service/Migrations/20220715225320_Init.Designer.cs
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -195,7 +199,8 @@ namespace CatalogueService.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
-                    b.Property<Guid>("BrandId")
+                    b.Property<Guid?>("BrandId")
+                        .IsRequired()
                         .HasColumnType("uuid")
                         .HasColumnName("brand_id");
 

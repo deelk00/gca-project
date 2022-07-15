@@ -193,7 +193,8 @@ namespace CatalogueService.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
-                    b.Property<Guid>("BrandId")
+                    b.Property<Guid?>("BrandId")
+                        .IsRequired()
                         .HasColumnType("uuid")
                         .HasColumnName("brand_id");
 

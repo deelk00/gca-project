@@ -173,7 +173,7 @@ namespace CatalogueService.Migrations
                     id = table.Column<Guid>(type: "uuid", nullable: false),
                     product_category_id = table.Column<Guid>(type: "uuid", nullable: false),
                     currency_id = table.Column<Guid>(type: "uuid", nullable: false),
-                    brand_id = table.Column<Guid>(type: "uuid", nullable: false),
+                    brand_id = table.Column<Guid>(type: "uuid", nullable: true),
                     name = table.Column<string>(type: "text", nullable: false),
                     stock = table.Column<long>(type: "bigint", nullable: false),
                     gender = table.Column<int>(type: "integer", nullable: false),
