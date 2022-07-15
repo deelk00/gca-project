@@ -12,10 +12,10 @@ export class BrandTypeDef extends TypeDef<Brand> {
   ctor = Brand;
   route = "brands";
 
-  id: IdDescriptor<Brand> = new IdDescriptor<Brand>("string");
+  id: IdDescriptor<Brand> = new IdDescriptor<Brand>("guid");
   name: string = "";
-  imageId = new IdDescriptor<Brand>("string", "image");
-  productIds = new IdListDescriptor<Brand>("string", "products");
+  imageId = new IdDescriptor<Brand>("guid", "image");
+  productIds = new IdListDescriptor<Brand>("guid", "products");
 
   image = CatalogueImageTypeDef;
   products = new ListTypeDef("catalogue", ProductTypeDef, "products");

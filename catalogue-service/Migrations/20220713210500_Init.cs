@@ -14,8 +14,9 @@ namespace CatalogueService.Migrations
                 columns: table => new
                 {
                     id = table.Column<Guid>(type: "uuid", nullable: false),
-                    name = table.Column<string>(type: "text", nullable: false),
-                    short_name = table.Column<string>(type: "text", nullable: false)
+                    name = table.Column<string>(type: "character varying(128)", maxLength: 128, nullable: false),
+                    short_name = table.Column<string>(type: "character varying(4)", maxLength: 4, nullable: false),
+                    symbol = table.Column<string>(type: "character varying(4)", maxLength: 4, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -228,6 +229,32 @@ namespace CatalogueService.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "product_image",
+                columns: table => new
+                {
+                    id = table.Column<Guid>(type: "uuid", nullable: false),
+                    image_id = table.Column<Guid>(type: "uuid", nullable: false),
+                    product_id = table.Column<Guid>(type: "uuid", nullable: false),
+                    index = table.Column<byte>(type: "smallint", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("pk_product_image", x => x.id);
+                    table.ForeignKey(
+                        name: "fk_product_image_images_image_id",
+                        column: x => x.image_id,
+                        principalTable: "images",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "fk_product_image_products_product_id",
+                        column: x => x.product_id,
+                        principalTable: "products",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "product_tag",
                 columns: table => new
                 {
@@ -287,6 +314,16 @@ namespace CatalogueService.Migrations
                 column: "tags_id");
 
             migrationBuilder.CreateIndex(
+                name: "ix_product_image_image_id",
+                table: "product_image",
+                column: "image_id");
+
+            migrationBuilder.CreateIndex(
+                name: "ix_product_image_product_id",
+                table: "product_image",
+                column: "product_id");
+
+            migrationBuilder.CreateIndex(
                 name: "ix_product_tag_tags_id",
                 table: "product_tag",
                 column: "tags_id");
@@ -317,6 +354,9 @@ namespace CatalogueService.Migrations
 
             migrationBuilder.DropTable(
                 name: "product_category_tag");
+
+            migrationBuilder.DropTable(
+                name: "product_image");
 
             migrationBuilder.DropTable(
                 name: "product_tag");

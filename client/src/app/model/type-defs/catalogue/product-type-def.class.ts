@@ -10,23 +10,26 @@ import {Tag} from "../../types/catalogue/tag.class";
 import {FilterPropertyTypeDef} from "./filter-property-type-def.class";
 import {TagTypeDef} from "./tag-type-def.class";
 import {BrandTypeDef} from "./brand-type-def.class";
+import {ProductImageTypeDef} from "./product-image-type-def.class";
 
 export class ProductTypeDef extends TypeDef<Product> {
   ctor: { new(): Product } = Product;
   service: string = "catalogue";
   route = "products";
 
-  id = new IdDescriptor("string");
-  productCategoryId = new IdDescriptor("string", "productCategory");
-  currencyId = new IdDescriptor("string", "currency");
-  brandId = new IdDescriptor("string", "brand");
+  id = new IdDescriptor("guid");
+  productCategoryId = new IdDescriptor("guid", "productCategory");
+  currencyId = new IdDescriptor("guid", "currency");
+  brandId = new IdDescriptor("guid", "brand");
   name = "";
   stock = 0;
   gender = Gender.Uni;
   price = 0.0;
+  productImageIds: string[];
 
   currency = CurrencyTypeDef;
   productCategory = ProductCategoryTypeDef;
+  productImages = new ListTypeDef(ProductImageTypeDef);
   tags = new ListTypeDef("catalogue", TagTypeDef, "tags");
   filterProperties = new ListTypeDef("catalogue", FilterPropertyTypeDef, "filter-properties");
   brand = BrandTypeDef;

@@ -14,11 +14,11 @@ export class FilterPropertyDefinitionTypeDef extends TypeDef<FilterPropertyDefin
   service: string = "catalogue";
   route = "filter-property-definitions";
 
-  id = new IdDescriptor("string");
+  id = new IdDescriptor("guid");
   name = "";
   valueType: FilterPropertyValueType = FilterPropertyValueType.Number;
-  filterPropertyIds = new IdListDescriptor("string", "filterProperties");
-  productCategoryIds = new IdListDescriptor("string", "productCategories");
+  filterPropertyIds = new IdListDescriptor("guid", "filterProperties");
+  productCategoryIds = new IdListDescriptor("guid", "productCategories");
 
   filterProperties = new ListTypeDef("catalogue", FilterPropertyTypeDef, "filter-properties");
   productCategories = new ListTypeDef("catalogue", ProductCategoryTypeDef, "product-categories");

@@ -11,10 +11,10 @@ export class TagTypeDef extends TypeDef<Tag> {
   service: string = "catalogue";
   route = "tags";
 
-  id = new IdDescriptor("string");
+  id = new IdDescriptor("guid");
   name = "";
-  productIds = new IdListDescriptor("string", "products");
-  productCategoryIds = new IdListDescriptor("string", "productCategories");
+  productIds = new IdListDescriptor("guid", "products");
+  productCategoryIds = new IdListDescriptor("guid", "productCategories");
 
   products = new ListTypeDef("catalogue", ProductTypeDef, "products");
   productCategories = new ListTypeDef("catalogue", ProductCategoryTypeDef, "product-categories");

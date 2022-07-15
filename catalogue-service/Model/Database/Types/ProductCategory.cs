@@ -1,10 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using DynamicQL.Attributes;
+using DynamicQL.Attributes.Enums;
 
 namespace CatalogueService.Model.Database.Types;
 
+[DynamicQL(options: QueryOptions.SingleCrud | QueryOptions.MultiQuery)]
 public class ProductCategory
 {
     public Guid Id { get; set; }
+    [DynamicQLQueryField(QueryFieldOptions.Equals)]
     public Guid? ParentCategoryId { get; set; }
 
     public string Name { get; set; }

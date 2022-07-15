@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CatalogueService.Migrations
 {
     [DbContext(typeof(CatalogueContext))]
-    [Migration("20220713134240_awd")]
-    partial class awd
+    [Migration("20220713210500_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

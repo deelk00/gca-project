@@ -11,11 +11,11 @@ export class CurrencyTypeDef extends TypeDef<Currency> {
   ctor: { new(): Currency } = Currency;
   route = "currencies";
 
-  id = new IdDescriptor<Currency>("string");
+  id = new IdDescriptor<Currency>("guid");
   name = "";
   shortName = "";
   symbol = "";
-  productIds = new IdListDescriptor("string", "products");
+  productIds = new IdListDescriptor("guid", "products");
 
   products = new ListTypeDef("catalogue", ProductTypeDef, "products");
 }

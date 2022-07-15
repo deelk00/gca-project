@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { environment } from 'src/environments/environment';
-import {CrudService} from "./services/rest-client/crud.service";
+import {CrudService} from "./services/crud-service/crud.service";
 import {ProductTypeDef} from "./model/type-defs/catalogue/product-type-def.class";
 
 @Component({

@@ -13,13 +13,13 @@ export class ProductCategoryTypeDef extends TypeDef<ProductCategory> {
   service: string = "catalogue";
   route = "product-categories";
 
-  id = new IdDescriptor("string");
+  id = new IdDescriptor("guid");
   name = "";
-  parentCategoryId = new IdDescriptor("string", "parentCategory");
-  tagIds = new IdListDescriptor("string", "tags");
-  childCategoryIds = new IdListDescriptor("string", "childCategories");
-  productIds = new IdListDescriptor("string", "products");
-  filterPropertyDefinitionIds = new IdListDescriptor("string", "filterPropertyDefinitions");
+  parentCategoryId = new IdDescriptor("guid", "parentCategory");
+  tagIds = new IdListDescriptor("guid", "tags");
+  childCategoryIds = new IdListDescriptor("guid", "childCategories");
+  productIds = new IdListDescriptor("guid", "products");
+  filterPropertyDefinitionIds = new IdListDescriptor("guid", "filterPropertyDefinitions");
 
   parentCategory = ProductCategoryTypeDef;
   tags = new ListTypeDef("catalogue", TagTypeDef, "tags")

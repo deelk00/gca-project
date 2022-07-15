@@ -1,0 +1,48 @@
+<h2 class="m-0 w-100">
+  <select [(ngModel)]="httpMethod" class="font-size-2">
+    <option value="get">Get</option>
+    <option value="post">Post</option>
+    <option value="put">Put</option>
+    <option value="delete">Delete</option>
+  </select>
+  <select [(ngModel)]="type" class="font-size-2">
+    <option *ngFor="let typeDef of types" [value]="typeDef.route" selected>
+      {{typeDef.route}}
+    </option>
+  </select>
+  <ng-container *ngIf="'post-images' === httpMethod + '-' + type" [ngTemplateOutlet]="postImage"></ng-container>
+</h2>
+
+<ng-template #getImages>
+  <div *ngFor="let image in images">
+
+  </div>
+</ng-template>
+
+<ng-template #postImage>
+  <h2 class="m-0">
+    Image
+  </h2>
+  <form id="imageForm" class="mx-3" [action]="url" method="POST">
+    <input
+      name="fileName"
+      class="font-size-3 my-2 p-2 px-3"
+      type="text"
+      placeholder="Dateiname"
+    >
+    <input
+      name="file"
+      required
+      class="font-size-3 my-2"
+      type="file"
+    >
+    <input
+      type="button"
+      class="p-2 px-3 font-size-3 col-12"
+      value="Upload"
+      (click)="postImageFunc($event)"
+    >
+  </form>
+</ng-template>
+
+

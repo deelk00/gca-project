@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {BehaviorSubject} from "rxjs";
+import {Product} from "../../model/types/catalogue/product.class";
 
 @Component({
   selector: 'app-product-overview',
@@ -7,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductOverviewComponent implements OnInit {
 
-  constructor() { }
+  public $products: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
+
+  get products() { return this.$products.asObservable(); }
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

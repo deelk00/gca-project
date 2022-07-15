@@ -1,3 +1,16 @@
 nav {
     height: 4rem;
 }
+.navigation-link {
+}
+.navigation-link:first-child {
+  border-left: #222d33 solid 1px;
+  padding-left: 16px;
+}
+.template {
+  display: none;
+}
+.parent {
+  div {
+  }
+}

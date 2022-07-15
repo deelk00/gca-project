@@ -4,6 +4,7 @@ import { Currency } from './currency.class';
 import { FilterProperty } from './filter-property.class';
 import { ProductCategory } from './product-category.class';
 import { Tag } from './tag.class';
+import {ProductImage} from "./product-image.class";
 
 export class Product {
   id: string;
@@ -17,10 +18,12 @@ export class Product {
 
   tagIds: string[];
   filterPropertyIds: string[];
+  productImageIds: string[];
 
   currency?: Currency;
   productCategory?: ProductCategory;
   tags?: Tag[];
   filterProperties?: FilterProperty[];
   brand?: Brand;
+  productImages?: ProductImage[];
 }

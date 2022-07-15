@@ -1,9 +1,53 @@
-<nav
+<div class="d-block" (mouseleave)="unsetHoveringLink($event)">
+  <nav
     class="row style-primary"
-    >
-    <div
-        class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4 col-xxl-2 p-md-2"
+  >
+    <div class="container-grow flex-row">
+      <div
+        class="container font-size-3"
+      >
+      <a
+        class="my-auto d-flex px-3 font-bold cursor-pointer"
+        style="text-decoration: none; color: #222d33"
+        href="/"
+      >
+        VPN-Log
+      </a>
+      </div>
+      <div
+        class="container-grow"
+      >
+        <div
+          class="container py-2"
         >
-        Salamdo
+          <div
+            class="font-size-4 my-auto p-2 px-2 cursor-pointer navigation-link"
+            *ngFor="let link of links"
+            [routerLink]="link.route"
+            [id]="link.id"
+            (mouseenter)="setHoveringLink($event)"
+          >
+            {{link.name}}
+          </div>
+        </div>
+      </div>
     </div>
-</nav>
+  </nav>
+  <div
+    class="row style-primary"
+    style="border-top: #222d33 1px solid"
+    *ngIf="hoveringLink"
+    >
+    <div class="px-3">
+      <div class="p-2 cursor-pointer">
+      <span
+        *ngFor="let link of hoveringLink.subLinks"
+        [routerLink]="link.route"
+        [id]="link.id"
+      >
+        {{link.name}}
+      </span>
+      </div>
+    </div>
+  </div>
+</div>

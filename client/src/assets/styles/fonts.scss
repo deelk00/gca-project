@@ -1,0 +1,41 @@
+.font-size-1 {
+  font-size: 4rem;
+}
+.font-size-2 {
+  font-size: 2rem;
+}
+.font-size-3 {
+  font-size: 1.5rem;
+}
+.font-size-4 {
+  font-size: 1.25rem;
+}
+.font-size-5 {
+  font-size: 1rem;
+}
+.font-bold {
+  font-weight: bold;
+}
+
+@each $size-name in $grid-size-names {
+  @media (min-width: map-get($grid-size, $size-name)) {
+    .font-size-#{$size-name}-1 {
+      font-size: 4rem;
+    }
+    .font-size-#{$size-name}-2 {
+      font-size: 2rem;
+    }
+    .font-size-#{$size-name}-3 {
+      font-size: 1.5rem;
+    }
+    .font-size-#{$size-name}-4 {
+      font-size: 1rem;
+    }
+    .font-size-#{$size-name}-5 {
+      font-size: 0.75rem;
+    }
+    .font-bold-#{$size-name} {
+      font-weight: bold;
+    }
+  }
+}

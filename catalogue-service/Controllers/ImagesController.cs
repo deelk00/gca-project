@@ -49,14 +49,19 @@ public class ImagesController : Controller
 
     [HttpPost]
     [DisableRequestSizeLimit]
-    public async Task<ActionResult<Image>> Post([FromForm] string md5Checksum, [FromForm] string? fileName = null)
+    public async Task<ActionResult<Image>> Post([FromForm] string? md5Checksum, 
+        [FromForm] string? fileName = null
+        )
     {
         if (Request.Form.Files.Count != 1) return BadRequest("one image expected");
         var file = Request.Form.Files[0];
         if (file.Length > 512 * 1024) return BadRequest("image is too large");
         var contentType = file.Headers.ContentType;
 
-        fileName ??= file.FileName;
+        if (string.IsNullOrEmpty(fileName))
+        {
+            fileName = file.Name;
+        }
         if (fileName.Length > 512) return BadRequest("the filename is to large");
         
         if (contentType != "image/gif"
@@ -72,7 +77,7 @@ public class ImagesController : Controller
         if (bytesRead != file.Length) return BadRequest("upload failed");
 
         var md5 = content.GetChecksum(HashAlgorithm.Md5);
-        if (md5Checksum != md5) return BadRequest("the provided hash does not equal the calculated md5 checksum");
+        if (md5Checksum != null && md5Checksum != md5) return BadRequest("the provided hash does not equal the calculated md5 checksum");
         
         var otherImg = await _context.Set<Image>().FirstOrDefaultAsync(x => x.Hash == md5);
         Image? image = null;

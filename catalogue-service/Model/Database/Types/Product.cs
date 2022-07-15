@@ -1,10 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using CatalogueService.Model.Database.Enums;
+using DynamicQL.Attributes;
+using DynamicQL.Attributes.Enums;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CatalogueService.Model.Database.Types;
 
+[DynamicQL(options: QueryOptions.SingleCrud | QueryOptions.MultiQuery)]
 public class Product
 {
     public Guid Id { get; set; }

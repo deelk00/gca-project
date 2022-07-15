@@ -1,9 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 body {
     padding: 0;
     margin: 0px;
     width: 100vw;
+    min-width: 300px;
     min-height: 100vh;
+    font-family: "Roboto", "sans-serif";
 
     app-root {
         width: 100%;
@@ -18,6 +22,12 @@ body {
 }
 
 @import "assets/styles/variables.scss";
+@import "assets/styles/display.scss";
 @import "assets/styles/colors.scss";
 @import "assets/styles/grid.scss";
 @import "assets/styles/spacing.scss";
+@import "assets/styles/fonts.scss";
+@import "assets/styles/style.scss";
+@import "assets/styles/cursor.scss";
+@import "assets/styles/flex.scss";
+

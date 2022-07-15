@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using DynamicQL.Attributes;
+using DynamicQL.Attributes.Enums;
 
 namespace CatalogueService.Model.Database.Types;
 

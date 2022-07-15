@@ -9,9 +9,9 @@ export class FilterPropertyTypeDef extends TypeDef<FilterProperty> {
   service: string = "catalogue";
   route = "filter-properties";
 
-  id = new IdDescriptor("string");
-  productId = new IdDescriptor("string", "product");
-  filterPropertyDefinitionId = new IdDescriptor("string", "filterPropertyDefinition");
+  id = new IdDescriptor("guid");
+  productId = new IdDescriptor("guid", "product");
+  filterPropertyDefinitionId = new IdDescriptor("guid", "filterPropertyDefinition");
   value = "";
 
   product = ProductTypeDef;

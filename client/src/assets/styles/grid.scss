@@ -1,6 +1,24 @@
 .row {
     width: 100%;
-    display: block;
+    display: flex;
+  flex-direction: row;
+}
+
+.w-100 {
+  width: 100%;
+}
+.h-100 {
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-grow: 0;
+}
+
+.container-grow {
+  display: flex;
+  flex-grow: 1;
 }
 
 @for $i from 1 through 12 {

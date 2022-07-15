@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckoutService", "checkout
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShippingService", "shipping-service\ShippingService.csproj", "{02B78A2D-A8D1-4D9B-BF0F-FC387F949085}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicQL", "DynamicQL\DynamicQL.csproj", "{0C65C441-DD83-48B9-B063-C402D4841AA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{02B78A2D-A8D1-4D9B-BF0F-FC387F949085}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02B78A2D-A8D1-4D9B-BF0F-FC387F949085}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02B78A2D-A8D1-4D9B-BF0F-FC387F949085}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C65C441-DD83-48B9-B063-C402D4841AA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C65C441-DD83-48B9-B063-C402D4841AA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C65C441-DD83-48B9-B063-C402D4841AA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C65C441-DD83-48B9-B063-C402D4841AA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
