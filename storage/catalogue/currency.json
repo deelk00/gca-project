@@ -1,0 +1,14 @@
+[
+    {
+        "id": "a13c16c8-94dc-4bd9-bbbd-61ae0a6c7d7c",
+        "name": "US Dollar",
+        "shortName": "USD",
+        "symbol": "$"
+    },
+    {
+        "id": "e0a3ec8f-854c-481a-b09d-f2f1d04d6906",
+        "name": "Euro",
+        "shortName": "EUR",
+        "symbol": "€"
+    }
+]

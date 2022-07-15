@@ -1,0 +1,232 @@
+[
+    {
+        "id": "49eb8652-cc8b-4422-978e-2aa77518ae2c",
+        "productCategoryId": "303394a7-1b55-4ebf-b510-16c625f18eae",
+        "currencyId": "e0a3ec8f-854c-481a-b09d-f2f1d04d6906",
+        "name": "Slim fit Jeans",
+        "stock": 12,
+        "gender": 4,
+        "price": 55.99
+    },
+    {
+        "id": "e49b43bc-5877-4cf1-9204-7e6a6ca7ac6a",
+        "productCategoryId": "303394a7-1b55-4ebf-b510-16c625f18eae",
+        "currencyId": "e0a3ec8f-854c-481a-b09d-f2f1d04d6906",
+        "name": "Ivy - Jeans Skinny Fit",
+        "stock": 5,
+        "gender": 4,
+        "price": 74.95
+    },
+    {
+        "id": "724d31f0-b0f9-474d-b0f1-abc40bfdcc04",
+        "productCategoryId": "303394a7-1b55-4ebf-b510-16c625f18eae",
+        "currencyId": "e0a3ec8f-854c-481a-b09d-f2f1d04d6906",
+        "name": "NEW BROOKE - Slim fit jeans",
+        "stock": 7,
+        "gender": 4,
+        "price": 49.5
+    },
+    {
+        "id": "b346e746-c14a-4c65-96b0-c02078b90287",
+        "productCategoryId": "303394a7-1b55-4ebf-b510-16c625f18eae",
+        "currencyId": "e0a3ec8f-854c-481a-b09d-f2f1d04d6906",
+        "name": "Slim fit Jeans",
+        "stock": 3,
+        "gender": 2,
+        "price": 59.95
+    },
+    {
+        "id": "fc687562-1439-461c-a8a5-1fca56b271a7",
+        "productCategoryId": "303394a7-1b55-4ebf-b510-16c625f18eae",
+        "currencyId": "e0a3ec8f-854c-481a-b09d-f2f1d04d6906",
+        "name": "Slim fit Jeans",
+        "stock": 5,
+        "gender": 2,
+        "price": 19.95
+    },
+
+    {
+        "id": "8f01412d-3644-4a78-9292-da9d53a42190",
+        "productCategoryId": "d08909a6-3706-4d17-b66b-53852da1c75d",
+        "currencyId": "e0a3ec8f-854c-481a-b09d-f2f1d04d6906",
+        "name": "Riverso - Shorts",
+        "stock": 4,
+        "gender": 2,
+        "price": 29.95
+    },
+    {
+        "id": "7e5366a3-67da-48bd-8b17-00ce0ad005a1",
+        "productCategoryId": "d08909a6-3706-4d17-b66b-53852da1c75d",
+        "currencyId": "e0a3ec8f-854c-481a-b09d-f2f1d04d6906",
+        "name": "Chasin' - Shorts",
+        "stock": 0,
+        "gender": 2,
+        "price": 39.95
+    },
+    {
+        "id": "163520af-dd37-4b62-84d2-fb177fb606ed",
+        "productCategoryId": "d08909a6-3706-4d17-b66b-53852da1c75d",
+        "currencyId": "e0a3ec8f-854c-481a-b09d-f2f1d04d6906",
+        "name": "Distressed Effect - Denim Shorts",
+        "stock": 1,
+        "gender": 4,
+        "price": 18.5
+    },
+    {
+        "id": "de7f2bb1-0a83-491d-b13e-cc06f0310cec",
+        "productCategoryId": "d08909a6-3706-4d17-b66b-53852da1c75d",
+        "currencyId": "e0a3ec8f-854c-481a-b09d-f2f1d04d6906",
+        "name": "Oxeldird - Shorts",
+        "stock": 10,
+        "gender": 4,
+        "price": 24.5
+    },
+
+    {
+        "id": "990a324b-81e3-4f1f-843a-eb7fc53495f4",
+        "productCategoryId": "2c4983e9-9b08-499e-aa79-479dc0f111b5",
+        "currencyId": "e0a3ec8f-854c-481a-b09d-f2f1d04d6906",
+        "name": "Roger Kent - Anzug-Hosen",
+        "stock": 6,
+        "gender": 2,
+        "price": 42.99
+    },
+    {
+        "id": "07b638de-a9f8-4b65-8b31-5d5b76775543",
+        "productCategoryId": "2c4983e9-9b08-499e-aa79-479dc0f111b5",
+        "currencyId": "e0a3ec8f-854c-481a-b09d-f2f1d04d6906",
+        "name": "Next - Anzug-Hosen",
+        "stock": 7,
+        "gender": 2,
+        "price": 31
+    },
+    {
+        "id": "e88294b8-9bee-45ea-98e9-b28091472c2d",
+        "productCategoryId": "2c4983e9-9b08-499e-aa79-479dc0f111b5",
+        "currencyId": "e0a3ec8f-854c-481a-b09d-f2f1d04d6906",
+        "name": "Jack & Jones - Anzug-Hosen",
+        "stock": 3,
+        "gender": 2,
+        "price": 29.99
+    },
+
+    {
+        "id": "05673dd5-726d-440b-ac9a-02e379630dd0",
+        "productCategoryId": "24ee38bf-92fb-45db-a59a-f91cac9aa46b",
+        "currencyId": "e0a3ec8f-854c-481a-b09d-f2f1d04d6906",
+        "name": "Moss Rain Coat - Wasserdichte Jacke",
+        "stock": 99,
+        "gender": 2,
+        "price": 60.95
+    },
+    {
+        "id": "e9bfc934-b719-4c5a-8599-e13a1e4aa36e",
+        "productCategoryId": "24ee38bf-92fb-45db-a59a-f91cac9aa46b",
+        "currencyId": "e0a3ec8f-854c-481a-b09d-f2f1d04d6906",
+        "name": "Man Jacket - Hardshell Jacke",
+        "stock": 40,
+        "gender": 2,
+        "price": 29.99
+    },
+    {
+        "id": "0a0de072-f76b-4c90-8b62-4e7db8085a0d",
+        "productCategoryId": "24ee38bf-92fb-45db-a59a-f91cac9aa46b",
+        "currencyId": "e0a3ec8f-854c-481a-b09d-f2f1d04d6906",
+        "name": "Birchdale - Hardshell Jacke",
+        "stock": 23,
+        "gender": 2,
+        "price": 79.99
+    },
+    {
+        "id": "5eae53db-23d5-4d5c-9193-1f7fa9d18030",
+        "productCategoryId": "24ee38bf-92fb-45db-a59a-f91cac9aa46b",
+        "currencyId": "e0a3ec8f-854c-481a-b09d-f2f1d04d6906",
+        "name": "Sawyer Mens - Hardshell Jacke",
+        "stock": 2,
+        "gender": 2,
+        "price": 449.95
+    },
+
+    {
+        "id": "3e9a918f-3af0-4110-8ac0-7826ce306f4a",
+        "productCategoryId": "f44064c7-2d54-4576-9428-adcaae63340f",
+        "currencyId": "e0a3ec8f-854c-481a-b09d-f2f1d04d6906",
+        "name": "Aviator - Lederjacke",
+        "stock": 10,
+        "gender": 2,
+        "price": 399.99
+    },
+    {
+        "id": "2302ac61-bb63-47a6-b455-f2b992ad3b31",
+        "productCategoryId": "f44064c7-2d54-4576-9428-adcaae63340f",
+        "currencyId": "e0a3ec8f-854c-481a-b09d-f2f1d04d6906",
+        "name": "Blue Wellford - Lederjacke",
+        "stock": 10,
+        "gender": 2,
+        "price": 139.00
+    },
+    {
+        "id": "4a9a0d3a-fbb5-418c-b1c5-673e5bc85559",
+        "productCategoryId": "f44064c7-2d54-4576-9428-adcaae63340f",
+        "currencyId": "e0a3ec8f-854c-481a-b09d-f2f1d04d6906",
+        "name": "Tazzio - Lederjacke",
+        "stock": 10,
+        "gender": 2,
+        "price": 149.90
+    },
+    {
+        "id": "907242f2-06e1-4ed0-b3ae-36f6bb3761b2",
+        "productCategoryId": "f44064c7-2d54-4576-9428-adcaae63340f",
+        "currencyId": "e0a3ec8f-854c-481a-b09d-f2f1d04d6906",
+        "name": "Conker - Faux Leder Jacke",
+        "stock": 1,
+        "gender": 4,
+        "price": 69.99
+    },
+    {
+        "id": "2db6f8e0-58d9-4009-97ca-d9157a1cb619",
+        "productCategoryId": "f44064c7-2d54-4576-9428-adcaae63340f",
+        "currencyId": "e0a3ec8f-854c-481a-b09d-f2f1d04d6906",
+        "name": "Massimo Dutti - Leder Jacke",
+        "stock": 4,
+        "gender": 4,
+        "price": 349.90
+    },
+
+    {
+        "id": "63b2edac-a8c6-453b-b630-75a2f0f491ff",
+        "productCategoryId": "1414533e-25b2-46c2-9aee-0cc73db6924d",
+        "currencyId": "e0a3ec8f-854c-481a-b09d-f2f1d04d6906",
+        "name": "Bershka - Denim Jacket",
+        "stock": 7,
+        "gender": 4,
+        "price": 35.99
+    },
+    {
+        "id": "8ab69ee9-8587-45a3-97ba-3a55d2b33201",
+        "productCategoryId": "1414533e-25b2-46c2-9aee-0cc73db6924d",
+        "currencyId": "e0a3ec8f-854c-481a-b09d-f2f1d04d6906",
+        "name": "Guess - Denim Jacket",
+        "stock": 14,
+        "gender": 4,
+        "price": 74.99
+    },
+    {
+        "id": "2087de4a-aa7e-45ac-8f11-34eab0058974",
+        "productCategoryId": "1414533e-25b2-46c2-9aee-0cc73db6924d",
+        "currencyId": "e0a3ec8f-854c-481a-b09d-f2f1d04d6906",
+        "name": "Kash Jacket - Denim Jacket",
+        "stock": 67,
+        "gender": 2,
+        "price": 39.95
+    },
+    {
+        "id": "177f6806-06db-4a72-a0c8-0de25b875ab1",
+        "productCategoryId": "1414533e-25b2-46c2-9aee-0cc73db6924d",
+        "currencyId": "e0a3ec8f-854c-481a-b09d-f2f1d04d6906",
+        "name": "Chasin - Denim Jacket",
+        "stock": 10,
+        "gender": 2,
+        "price": 59.95
+    }
+]

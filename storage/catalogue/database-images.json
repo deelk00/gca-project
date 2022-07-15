@@ -1,0 +1,148 @@
+[
+    {
+        "id": "e677fb91-18af-4a23-8be0-41689a024708",
+        "fileName": "Adidas.png",
+        "contentType": "image/png"
+    },
+    {
+        "id": "a07eb45a-8e0d-4e8e-97fc-03c2df1fe737",
+        "fileName": "Nike.png",
+        "contentType": "image/png"
+    },
+    {
+        "id": "f4ff827e-6ab8-411e-8e6c-cc3b8a2ee69f",
+        "fileName": "Puma.png",
+        "contentType": "image/png"
+    },
+
+    {
+        "id": "5466670d-eff0-4e81-ba06-9fd1f18f8a3e",
+        "fileName": "slim-jeans.png",
+        "contentType": "image/png"
+    },
+    {
+        "id": "af10ef80-e80f-4276-9662-3558308a7b08",
+        "fileName": "chasin-jeans.png",
+        "contentType": "image/png"
+    },
+    {
+        "id": "43244fba-e3fe-4e35-b989-b9075e942f4e",
+        "fileName": "denim-project-jeans.png",
+        "contentType": "image/png"
+    },
+    {
+        "id": "90e216b9-ba5d-4fa6-99ab-85d18c6e23aa",
+        "fileName": "ivy-jeans.png",
+        "contentType": "image/png"
+    },
+    {
+        "id": "bfa4659e-c759-47a7-bd76-143f3db95c30",
+        "fileName": "pepe-jeans.png",
+        "contentType": "image/png"
+    },
+
+    {
+        "id": "887fe9e6-cca0-4cc6-aa19-d2a9cf984e57",
+        "fileName": "chasin-shorts.png",
+        "contentType": "image/png"
+    },
+    {
+        "id": "9fb62bea-e691-4367-8044-66b5e27b7431",
+        "fileName": "distressed-shorts.png",
+        "contentType": "image/png"
+    },
+    {
+        "id": "f6d5f508-b908-42db-a460-dd9b92638c10",
+        "fileName": "oxmo-shorts.png",
+        "contentType": "image/png"
+    },
+    {
+        "id": "a54473b6-0444-4ed0-ad81-fd68ce621157",
+        "fileName": "riverso-shorts.png",
+        "contentType": "image/png"
+    },
+
+    {
+        "id": "bb5e1a8b-d738-4ffa-8e36-dc7b5c9ac205",
+        "fileName": "jack-and-jones-anzug-hosen.png",
+        "contentType": "image/png"
+    },
+    {
+        "id": "1de03cbf-6e96-4e30-ac02-663556c49b57",
+        "fileName": "next-anzug-hosen.png",
+        "contentType": "image/png"
+    },
+    {
+        "id": "c6798250-9762-4f92-b2d2-acd5dae5bfbe",
+        "fileName": "roger-kent-anzug-hosen.png",
+        "contentType": "image/png"
+    },
+
+    {
+        "id": "cf7cdd11-bc96-41a8-956f-06128b5337d1",
+        "fileName": "birchdale-rain-coat.png",
+        "contentType": "image/png"
+    },
+    {
+        "id": "5d998a2a-0ed6-404e-b728-ec39f8ba8299",
+        "fileName": "man-jacket-hardshell.png",
+        "contentType": "image/png"
+    },
+    {
+        "id": "d5516cc4-ecb4-4b40-84ad-4361d56f6252",
+        "fileName": "moss-rain-coat.png",
+        "contentType": "image/png"
+    },
+    {
+        "id": "da55a12d-3793-4f04-acd1-8f4b587addac",
+        "fileName": "sawyer-hardshell-jacket.png",
+        "contentType": "image/png"
+    },
+
+    {
+        "id": "349dcac7-8372-4334-9663-6051a9d80b2e",
+        "fileName": "aviator-leder-jacke.png",
+        "contentType": "image/png"
+    },
+    {
+        "id": "2605c4d8-3c63-43f3-a974-f278d735225b",
+        "fileName": "conker-leder-jacke.png",
+        "contentType": "image/png"
+    },
+    {
+        "id": "17f087f9-fb3e-41d1-b4a3-dc99aab80bca",
+        "fileName": "massimo-leder-jacke.png",
+        "contentType": "image/png"
+    },
+    {
+        "id": "f6165c87-8d5e-4228-9d25-5b77e5ec4880",
+        "fileName": "tazzio-leder-jacke.png",
+        "contentType": "image/png"
+    },
+    {
+        "id": "75e579ee-7ac7-4490-9bdb-54b0eaa1ef86",
+        "fileName": "wellford-leder-jacke.png",
+        "contentType": "image/png"
+    },
+
+    {
+        "id": "f6956837-3e5e-450e-9a88-bd2354f1a298",
+        "fileName": "bershka-denim-jacke.png",
+        "contentType": "image/png"
+    },
+    {
+        "id": "4cfc23cd-03f4-4be7-81ca-1ba26ef142de",
+        "fileName": "chasin-denim-jacket.png",
+        "contentType": "image/png"
+    },
+    {
+        "id": "651d8d06-8fa4-45a5-904a-b8738be11cc7",
+        "fileName": "guess-denim-jacket.png",
+        "contentType": "image/png"
+    },
+    {
+        "id": "f7253152-93cc-4df0-bc25-fd4657f44e07",
+        "fileName": "kash-denim-jacket.png",
+        "contentType": "image/png"
+    }
+]
