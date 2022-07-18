@@ -38,7 +38,7 @@ export class DynamicQuery<TDef extends TypeDef<T>, T> {
     this.type = new this.typeDef.ctor() as T;
   }
 
-  getQueryName = () => {
+  private getQueryName = () => {
     let queryName = this.typeDef.ctor.name;
     queryName = queryName[0].toLowerCase() + queryName.substring(1);
     if(this.listTypeDef) {
@@ -47,7 +47,7 @@ export class DynamicQuery<TDef extends TypeDef<T>, T> {
     return queryName;
   }
 
-  getQueryVariableString = () => {
+  private getQueryVariableString = () => {
     let varString = "";
     const varKeys = Object.keys(this.variables);
     for (const key of varKeys) {
@@ -70,7 +70,7 @@ export class DynamicQuery<TDef extends TypeDef<T>, T> {
     return varString;
   }
 
-  getTypeVariableString = () => {
+  private getTypeVariableString = () => {
     let varString = "";
     const varKeys = Object.keys(this.variables);
     if(varKeys.length > 0) {
@@ -83,7 +83,7 @@ export class DynamicQuery<TDef extends TypeDef<T>, T> {
     return varString;
   }
 
-  static getTypeDefinition = <TDef extends TypeDef<T>, T>(typeDef: TDef): string => {
+  private static getTypeDefinition = <TDef extends TypeDef<T>, T>(typeDef: TDef): string => {
     let typeDefString = openTypeDefinitions[typeDef.ctor.name];
     if(!typeDefString) {
       typeDefString = "";
@@ -105,7 +105,7 @@ export class DynamicQuery<TDef extends TypeDef<T>, T> {
     return typeDefString;
   }
 
-  getTypeDefinition = () => {
+  private getTypeDefinition = () => {
     let typeDefString = DynamicQuery.getTypeDefinition(this.typeDef) + ",";
 
     for (const key in this.typeDef) {
@@ -116,19 +116,17 @@ export class DynamicQuery<TDef extends TypeDef<T>, T> {
         || this.typeDef[key] instanceof TypeDef
         || this.typeDef[key] instanceof ListTypeDef
       )) {
-        console.log(key)
-        //const def = DynamicQuery.getTypeDefinition(new (this.typeDef[key] as any)());
-        typeDefString += DynamicQuery.getInnerQuery((this.includeTypes as any)[key].dynamicQuery) + ",";
+        typeDefString += DynamicQuery.getInnerQuery((this.includeTypes as any)[key].dynamicQuery, true, key) + ",";
       }
     }
     typeDefString = typeDefString.substring(0, typeDefString.length -1);
     return typeDefString;
   }
 
-  static getInnerQuery = (dq: DynamicQuery<any, any>, withVariables: boolean = true) => {
-    let queryName = dq.getQueryName();
+  private static getInnerQuery = (dq: DynamicQuery<any, any>, withVariables: boolean = true, name: string | undefined = undefined) => {
+    name ??= dq.getQueryName();
 
-    return queryName + (withVariables ? dq.getTypeVariableString() : "") + "{" + dq.getTypeDefinition() + "}"
+    return name + (withVariables ? dq.getTypeVariableString() : "") + "{" + dq.getTypeDefinition() + "}"
   }
 
   include = <TInDef extends TypeDef<TIn>, TIn>(
@@ -169,37 +167,48 @@ export class DynamicQuery<TDef extends TypeDef<T>, T> {
       }
     }
     if(!key) throw "property name is wrong";
-    (this.includeTypes as any)[key]({
+    (this.includeTypes as any)[key] = {
       dynamicQuery: dq
-    });
+    };
+
     return this;
   }
 
+  // function to allow TypeScript to follow types correctly
   getMultiQuery = () => this.getQuery() as unknown as IQueryDefinition<T[]>;
 
+  // compiles the query
   getQuery = () => {
     let query: TypedDocumentNode<unknown, unknown>;
 
+    // set default parameters
     if(this.listTypeDef) {
       this.variables["take"] ??= GraphQLType.Int;
       this.variables["skip"] ??= GraphQLType.Int;
       this.variables["page"] ??= GraphQLType.Int;
       this.variables["pageSize"] ??= GraphQLType.Int;
+    }else{
+      this.variables["id"] ??= GraphQLType.NonNullable | GraphQLType.Guid;
     }
+    // default resolve method
     let resolve = (data: any) => data[queryName];
 
+    // get the query name
     let queryName = this.getQueryName();
 
+    // creates the query string
     let queryString = "query(" + this.getQueryVariableString() + "){" + queryName + this.getTypeVariableString() + "{"
       + this.getTypeDefinition() + "}}";
-
     query = gql(queryString);
+
+    // create the query definition
     const queryDef: IQueryDefinition<T> = {
       service: this.typeDef.service,
       query: query!,
       resolve: resolve
     }
 
+    // return it
     return queryDef;
   }
 }

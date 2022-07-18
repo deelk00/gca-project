@@ -10,8 +10,10 @@ public class ProductImage
     public Guid Id { get; set; }
     
     [ForeignKey(nameof(Image))]
+    [DynamicQLQueryField(QueryFieldOptions.Equals)]
     public Guid ImageId { get; set; }
     [ForeignKey(nameof(Product))]
+    [DynamicQLQueryField(QueryFieldOptions.Equals)]
     public Guid ProductId { get; set; }
     
     public byte index { get; set; }

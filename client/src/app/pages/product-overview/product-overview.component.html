@@ -1,3 +1,28 @@
-<div *ngFor="let product of $products | async">
-  {{product.name}}
+
+<div class="mt-4 offset-1 col-10">
+  <div class="row">
+
+  </div>
+  <div #productContainer>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" *ngFor="let product of $products | async">
+      <div class="m-3 my-4">
+        <div class="col-12">
+          <img
+            class="product-image col-12"
+            [src]="imageUrls[product.id][0]"
+            />
+        </div>
+        <div class="col-12" style="position: relative;">
+          <div class="d-flex flex-row col-12" style="position: absolute; margin-top: -15px; align-items: stretch;">
+            <div class="container-grow mr-2">
+              {{product.name}}
+            </div>
+            <div class="container">
+              {{product.price | currency}}{{product.currency?.symbol}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

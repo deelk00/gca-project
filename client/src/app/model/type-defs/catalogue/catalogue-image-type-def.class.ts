@@ -15,7 +15,6 @@ export class CatalogueImageTypeDef extends TypeDef<CatalogueImage> {
 
   id = new IdDescriptor<CatalogueImage>("guid");
   hash = "";
-  source = "";
   brandIds = new IdListDescriptor<CatalogueImage>("guid", "brands");
   productImageIds = new IdListDescriptor<CatalogueImage>("guid", "productImages")
 

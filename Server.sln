@@ -5,15 +5,21 @@ VisualStudioVersion = 17.2.32505.173
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utility", "utility\Utility.csproj", "{CAA69105-9F82-4B43-89E2-5EF6E035EA6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CartService", "cart-service\CartService.csproj", "{C2962C06-995E-4DEE-991F-5A31F29565AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CartService", "cart-service\CartService.csproj", "{C2962C06-995E-4DEE-991F-5A31F29565AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogueService", "catalogue-service\CatalogueService.csproj", "{627AD8A0-2EFB-441C-8811-76CDA77D9647}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatalogueService", "catalogue-service\CatalogueService.csproj", "{627AD8A0-2EFB-441C-8811-76CDA77D9647}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckoutService", "checkout-service\CheckoutService.csproj", "{341C6657-1F58-4046-AB29-6A1648FC4A00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CheckoutService", "checkout-service\CheckoutService.csproj", "{341C6657-1F58-4046-AB29-6A1648FC4A00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShippingService", "shipping-service\ShippingService.csproj", "{02B78A2D-A8D1-4D9B-BF0F-FC387F949085}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShippingService", "shipping-service\ShippingService.csproj", "{02B78A2D-A8D1-4D9B-BF0F-FC387F949085}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicQL", "DynamicQL\DynamicQL.csproj", "{0C65C441-DD83-48B9-B063-C402D4841AA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicQL", "DynamicQL\DynamicQL.csproj", "{0C65C441-DD83-48B9-B063-C402D4841AA8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicQL.Authentication", "DynamicQL.Authentication\DynamicQL.Authentication.csproj", "{D40265B7-1586-404E-826B-092D6BE66305}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicQL.Authentication.Jwt", "DynamicQL.Authentication.Jwt\DynamicQL.Authentication.Jwt.csproj", "{14124CFD-209D-485D-A6B4-41ADBB076A41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationService", "AuthenticationService\AuthenticationService.csproj", "{238C9001-195C-427A-9798-B0C51C94A497}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +51,18 @@ Global
 		{0C65C441-DD83-48B9-B063-C402D4841AA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C65C441-DD83-48B9-B063-C402D4841AA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C65C441-DD83-48B9-B063-C402D4841AA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D40265B7-1586-404E-826B-092D6BE66305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D40265B7-1586-404E-826B-092D6BE66305}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D40265B7-1586-404E-826B-092D6BE66305}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D40265B7-1586-404E-826B-092D6BE66305}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14124CFD-209D-485D-A6B4-41ADBB076A41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14124CFD-209D-485D-A6B4-41ADBB076A41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14124CFD-209D-485D-A6B4-41ADBB076A41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14124CFD-209D-485D-A6B4-41ADBB076A41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{238C9001-195C-427A-9798-B0C51C94A497}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{238C9001-195C-427A-9798-B0C51C94A497}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{238C9001-195C-427A-9798-B0C51C94A497}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{238C9001-195C-427A-9798-B0C51C94A497}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

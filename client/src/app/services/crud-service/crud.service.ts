@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {TypeDef} from "../../model/type-defs/type-def.abstract";
+import { TypeDef } from '../../model/type-defs/type-def.abstract';
 import axios, {AxiosRequestConfig, AxiosResponse} from "axios";
 import {environment} from "../../../environments/environment";
 import {BehaviorSubject, from, map, Observable, tap} from "rxjs";
@@ -71,11 +71,14 @@ export class CrudService {
     return this.getRequest(typeDef, route, options) as BehaviorSubject<T[] | null>;
   }
 
-  post = async <T>(t: new () =>  TypeDef<T>, entity: TypeDef<T>) => {
-    return this.request(new t(), "post", undefined, undefined, entity);
+  post = <T>(t: new () =>  TypeDef<T>, entity: T, route?: string): Observable<T> => {
+    const typeDef = new t();
+    route ??= typeDef.route;
+    return from(axios.post((environment.urls as any)[typeDef.service] + route, entity))
+      .pipe(map(x => x.data as T));
   }
 
-  put = async <T>(t: new () => TypeDef<T>, entity: TypeDef<T>) => {
+  put = async <T>(t: new () => TypeDef<T>, entity: T) => {
     return this.request(new t(), "put", undefined, undefined, entity);
   }
 

@@ -10,6 +10,19 @@ services:
     networks:
       - postgres-network
 
+  authentication-service:
+    build:
+      context: ./
+      dockerfile: ./AuthenticationService/Dockerfile
+    depends_on:
+      - postgres
+    environment:
+      - ConnectionStrings__salamdo_authentication=User ID=postgres;Password=Test123!;Host=postgres;Port=5432;Database=salamdo_authentication;Pooling=true;Connection Lifetime=0;
+      - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - authentication-network
+      - postgres-network
+
   catalogue-service:
     build: 
       context: ./
@@ -41,6 +54,7 @@ services:
       - client-network
       - catalogue-network
       - pgAdmin-network
+      - authentication-network
 
   pgAdmin: 
     image: dpage/pgadmin4
@@ -56,6 +70,7 @@ services:
 
 networks:
   postgres-network:
+  authentication-network:
   catalogue-network:
   client-network:
   pgAdmin-network:

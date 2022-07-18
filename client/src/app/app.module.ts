@@ -12,8 +12,11 @@ import {APOLLO_NAMED_OPTIONS, APOLLO_OPTIONS, ApolloModule} from "apollo-angular
 import {HttpLink} from "apollo-angular/http";
 import {environment} from "../environments/environment";
 import { InMemoryCache } from '@apollo/client/cache';
-import { AdminPanelComponent } from './pages/admin-panel/admin-panel.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { CurrencyPipe } from './pipes/currency/currency.pipe';
+import { FooterComponent } from './components/footer/footer.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ToasterComponent } from './components/toaster/toaster.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     ProductDetailComponent,
     ProductOverviewComponent,
     NavigationComponent,
-    AdminPanelComponent
+    CurrencyPipe,
+    FooterComponent,
+    LoginComponent,
+    ToasterComponent
   ],
   imports: [
     BrowserModule,

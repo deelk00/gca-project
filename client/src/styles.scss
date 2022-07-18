@@ -2,23 +2,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body {
-    padding: 0;
-    margin: 0px;
-    width: 100vw;
-    min-width: 300px;
-    min-height: 100vh;
-    font-family: "Roboto", "sans-serif";
+  padding: 0;
+  margin: 0px;
+  width: 100vw;
+  min-width: 300px;
+  min-height: 100vh;
+  font-family: "Roboto", "sans-serif";
+  overflow-x: hidden;
 
-    app-root {
-        width: 100%;
-        height: 100%;
-    }
+  app-root {
+      width: 100%;
+      height: 100%;
+  }
 
-    div, p {
-        padding: 0;
-        margin: 0px;
-        display: inline-block;
-    }
+  div, p {
+      padding: 0;
+      margin: 0px;
+      display: inline-block;
+  }
 }
 
 @import "assets/styles/variables.scss";
@@ -30,4 +31,4 @@ body {
 @import "assets/styles/style.scss";
 @import "assets/styles/cursor.scss";
 @import "assets/styles/flex.scss";
-
+@import "assets/styles/forms.scss";

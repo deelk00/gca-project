@@ -1,0 +1,12 @@
+@for $i from 1 through 5 {
+  .shadow-#{$i} {
+    box-shadow: #00000033 0px calc(2px * $i) calc(4px * $i);
+  }
+}
+
+@for $i from 1 through 5 {
+  .border-#{$i} {
+    border-width: #{$i}px;
+  }
+}
+

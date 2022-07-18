@@ -25,9 +25,11 @@ public class ImagesController : Controller
     [Route("download/{id:guid}")]
     public async Task<ActionResult> DownloadImage([FromRoute] Guid id)
     {
-        var dbImage = await _context.FindAsync<DatabaseImage>(id);
-        if (dbImage == null) return BadRequest("image not found");
-        return File(dbImage.Data, dbImage.ContentType, dbImage.FileName);
+        var dbImage = await _context.Set<Image>()
+            .Include(x => x.DatabaseImage)
+            .FirstOrDefaultAsync(x => x.Id == id);
+        if (dbImage?.DatabaseImage == null) return BadRequest("image not found");
+        return File(dbImage.DatabaseImage.Data, dbImage.DatabaseImage.ContentType, dbImage.DatabaseImage.FileName);
     }
     
     [HttpGet]

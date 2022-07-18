@@ -1,0 +1,16 @@
+.product-image {
+  object-fit: contain;
+}
+
+.product {
+  width: 90%;
+  div {
+
+  }
+}
+
+@media (min-width: 500px) {
+  .product {
+    width: calc(100%/2);
+  }
+}

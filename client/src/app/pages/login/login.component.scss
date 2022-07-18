@@ -1,0 +1,21 @@
+.login {
+  height: 400px;
+}
+
+.login-button {
+  margin-left: -12px;
+  border-color: #00000033;
+  background-color: #fff;
+  color: #333;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.login-button:focus {
+  border-color: #00000066;
+  background-color: #f0f0f0;
+}
+.login-button:hover {
+  border-color: #00000044;
+  background-color: #fafafa;
+}

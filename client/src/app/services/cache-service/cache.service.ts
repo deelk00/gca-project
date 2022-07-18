@@ -19,14 +19,14 @@ export class CacheService {
       case StorageType.Cookies:
         throw "not implemented yet";
         break;
-      // @ts-ignore
       case StorageType.LocalStorage:
         storage = window.localStorage;
+        break;
       case StorageType.SessionStorage:
         storage ??= window.sessionStorage;
-        storage.setItem(key, JSON.stringify(value));
         break;
     }
+    storage.setItem(key, JSON.stringify(value));
     return value;
   }
 

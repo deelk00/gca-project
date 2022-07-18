@@ -51,12 +51,13 @@ export class NavigationComponent implements OnInit {
         } as ILink;
         this.links.push(link);
         this.graphQL.executeQuery(query, {"parentCategoryId": category.id})
-          .subscribe((x: ProductCategory[]) => {
+          .subscribe((x: ProductCategory[] | null) => {
+            if(!x) return;
             link.subLinks = x.map(y => {
               return {
                 id: y.id,
                 name: y.name,
-                route: "/product-category/" + category.id + "/" + y.id,
+                route: "/product-category/" + y.id,
                 subLinks: []
               }
             });

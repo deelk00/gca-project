@@ -194,7 +194,6 @@ namespace CatalogueService.Migrations
                         .HasColumnName("id");
 
                     b.Property<Guid?>("BrandId")
-                        .IsRequired()
                         .HasColumnType("uuid")
                         .HasColumnName("brand_id");
 
@@ -210,6 +209,10 @@ namespace CatalogueService.Migrations
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("name");
+
+                    b.Property<decimal?>("OfferPrice")
+                        .HasColumnType("numeric")
+                        .HasColumnName("offer_price");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric")
@@ -419,8 +422,6 @@ namespace CatalogueService.Migrations
                     b.HasOne("CatalogueService.Model.Database.Types.Brand", "Brand")
                         .WithMany("Products")
                         .HasForeignKey("BrandId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("fk_products_brands_brand_id");
 
                     b.HasOne("CatalogueService.Model.Database.Types.Currency", "Currency")

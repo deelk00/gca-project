@@ -14,3 +14,11 @@ nav {
   div {
   }
 }
+.nav {
+  position: fixed;
+  width: 100%;
+  z-index: 9999999;
+}
+.logo-image {
+  height: 48px;
+}
