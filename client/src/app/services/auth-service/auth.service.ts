@@ -22,11 +22,11 @@ export class AuthService {
 
   constructor(private crud: CrudService) { }
 
-  login(username: string, password: string) {
+  login = (username: string, password: string) => {
     const user = new User();
     user.username = username;
     user.password = password;
-    this.crud.post(UserTypeDef, user)
+    this.crud.post(UserTypeDef, user, "login")
       .pipe(
         catchError(x => {
           this.$authStatus.next(AuthStatus.IsNotAuthenticated);
@@ -37,5 +37,10 @@ export class AuthService {
         this.user = u;
         this.$authStatus.next(AuthStatus.IsAuthenticated);
       });
+  }
+
+  logout = () => {
+    this.user = undefined;
+    this.$authStatus.next(AuthStatus.IsNotAuthenticated);
   }
 }

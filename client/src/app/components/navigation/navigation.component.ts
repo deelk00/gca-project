@@ -5,6 +5,8 @@ import {ProductCategoryTypeDef} from "../../model/type-defs/catalogue/product-ca
 import {GraphQLService} from "../../services/graph-ql-service/graph-q-l.service";
 import {DynamicQuery, GraphQLType} from "../../model/graph-ql/dynamic-query.class";
 import {ListTypeDef} from "../../model/type-defs/list-type-def.class";
+import { AuthService, AuthStatus } from '../../services/auth-service/auth.service';
+import { Router } from '@angular/router';
 
 export interface ILink {
   id: string;
@@ -24,7 +26,9 @@ export class NavigationComponent implements OnInit {
 
   constructor(
     private crudService: CrudService,
-    private graphQL: GraphQLService
+    private graphQL: GraphQLService,
+    public authService: AuthService,
+    private router: Router
   ) { }
 
   setHoveringLink = (e: MouseEvent) => {
@@ -36,6 +40,12 @@ export class NavigationComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.authService.authStatus.subscribe(x => {
+      if(x === AuthStatus.IsAuthenticated) {
+        this.router.navigate(["/"]);
+      }
+    });
+
     const query = new DynamicQuery(new ListTypeDef(ProductCategoryTypeDef), {
       "parentCategoryId": GraphQLType.Guid
     }).getMultiQuery();

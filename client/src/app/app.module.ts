@@ -17,6 +17,11 @@ import { CurrencyPipe } from './pipes/currency/currency.pipe';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ToasterComponent } from './components/toaster/toaster.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { OrderOverviewComponent } from './pages/order-overview/order-overview.component';
+import { OrderDetailComponent } from './pages/order-detail/order-detail.component';
+import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
+import { PaymentComponent } from './pages/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +33,12 @@ import { ToasterComponent } from './components/toaster/toaster.component';
     CurrencyPipe,
     FooterComponent,
     LoginComponent,
-    ToasterComponent
+    ToasterComponent,
+    ProfileComponent,
+    OrderOverviewComponent,
+    OrderDetailComponent,
+    ShoppingCartComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

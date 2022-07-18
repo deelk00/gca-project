@@ -7,6 +7,7 @@ import { DynamicQuery, GraphQLType } from '../../model/graph-ql/dynamic-query.cl
 import { ListTypeDef } from '../../model/type-defs/list-type-def.class';
 import { ProductTypeDef } from '../../model/type-defs/catalogue/product-type-def.class';
 import { environment } from 'src/environments/environment';
+import {ShoppingCartService} from "../../services/shopping-cart-service/shopping-cart.service";
 
 @Component({
   selector: 'app-product-overview',
@@ -32,7 +33,8 @@ export class ProductOverviewComponent implements OnInit, AfterViewInit, OnDestro
 
   constructor(
     private graphQL: GraphQLService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private shoppingCart: ShoppingCartService
   ) {
     window.addEventListener("scroll", this.onScroll);
   }
@@ -88,12 +90,14 @@ export class ProductOverviewComponent implements OnInit, AfterViewInit, OnDestro
       }
 
       if(swi) {
+
         swi = false;
+        this.subs.push(this.$products.subscribe(this.processProducts));
         this.activatedRoute.params.subscribe(params => {
           this.categoryId = params["id"];
+          this.$products.next([]);
           this.loadProducts();
         });
-        this.subs.push(this.$products.subscribe(this.processProducts));
       }
     });
     this.resizeObserver.observe(window.document.body);

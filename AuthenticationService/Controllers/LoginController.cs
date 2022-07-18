@@ -18,11 +18,8 @@ namespace AuthenticationService.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> Login([FromBody] User user)
         {
-            var u = await _context.Set<User>().FirstOrDefaultAsync(x => x.Username == user.Username);
-            if(u == null)
-            {
-                u = await _context.TransactionAsync(x => _context.AddAsync(user));
-            }
+            var u = await _context.Set<User>().FirstOrDefaultAsync(x => x.Username == user.Username) 
+                    ?? await _context.TransactionAsync(x => _context.AddAsync(user));
 
             return u;
         }

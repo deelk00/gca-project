@@ -13,13 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CheckoutService", "checkout
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShippingService", "shipping-service\ShippingService.csproj", "{02B78A2D-A8D1-4D9B-BF0F-FC387F949085}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicQL", "DynamicQL\DynamicQL.csproj", "{0C65C441-DD83-48B9-B063-C402D4841AA8}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicQL.Authentication", "DynamicQL.Authentication\DynamicQL.Authentication.csproj", "{D40265B7-1586-404E-826B-092D6BE66305}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicQL.Authentication.Jwt", "DynamicQL.Authentication.Jwt\DynamicQL.Authentication.Jwt.csproj", "{14124CFD-209D-485D-A6B4-41ADBB076A41}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationService", "AuthenticationService\AuthenticationService.csproj", "{238C9001-195C-427A-9798-B0C51C94A497}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicQL", "DynamicQL\DynamicQL.csproj", "{72D255AB-27DB-4B69-8402-701293DE175E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +47,6 @@ Global
 		{02B78A2D-A8D1-4D9B-BF0F-FC387F949085}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02B78A2D-A8D1-4D9B-BF0F-FC387F949085}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02B78A2D-A8D1-4D9B-BF0F-FC387F949085}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0C65C441-DD83-48B9-B063-C402D4841AA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0C65C441-DD83-48B9-B063-C402D4841AA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0C65C441-DD83-48B9-B063-C402D4841AA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0C65C441-DD83-48B9-B063-C402D4841AA8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D40265B7-1586-404E-826B-092D6BE66305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D40265B7-1586-404E-826B-092D6BE66305}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D40265B7-1586-404E-826B-092D6BE66305}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -63,6 +59,10 @@ Global
 		{238C9001-195C-427A-9798-B0C51C94A497}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{238C9001-195C-427A-9798-B0C51C94A497}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{238C9001-195C-427A-9798-B0C51C94A497}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72D255AB-27DB-4B69-8402-701293DE175E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72D255AB-27DB-4B69-8402-701293DE175E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72D255AB-27DB-4B69-8402-701293DE175E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72D255AB-27DB-4B69-8402-701293DE175E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

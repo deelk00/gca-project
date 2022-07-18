@@ -4,15 +4,15 @@
 
 const environment = {
   production: false,
-  host: "http://localhost:8080/api",
+  host: "http://localhost:8080/api/",
   urls: {
     catalogue: "",
     authentication: ""
   }
 };
 
-environment.urls.catalogue = new URL("catalogue", environment.host).href;
-environment.urls.authentication = new URL("authentication", environment.host).href;
+environment.urls.catalogue = new URL("catalogue", environment.host).href + "/";
+environment.urls.authentication = new URL("authentication", environment.host).href + "/";
 
 export {
   environment

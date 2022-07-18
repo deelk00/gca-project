@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {ProductOverviewComponent} from "./pages/product-overview/product-overview.component";
 import { LoginComponent } from './pages/login/login.component';
+import {ProfileComponent} from "./pages/profile/profile.component";
+import {OrderOverviewComponent} from "./pages/order-overview/order-overview.component";
+import {OrderDetailComponent} from "./pages/order-detail/order-detail.component";
 
 const routes: Routes = [
   {
@@ -15,8 +18,20 @@ const routes: Routes = [
     component: ProductOverviewComponent
   },
   {
-    path: "products/:id",
+    path: "products/:productId",
     component: ProductDetailComponent
+  },
+  {
+    path: "profile/:userId",
+    component: ProfileComponent
+  },
+  {
+    path: "orders",
+    component: OrderOverviewComponent
+  },
+  {
+    path: "orders/:orderId",
+    component: OrderDetailComponent
   },
   {
     path: "",

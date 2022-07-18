@@ -4,8 +4,13 @@
 
   </div>
   <div #productContainer>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" *ngFor="let product of $products | async">
-      <div class="m-3 my-4">
+    <div
+      class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2"
+      *ngFor="let product of $products | async"
+    >
+      <div
+        class="m-3 my-4"
+      >
         <div class="col-12">
           <img
             class="product-image col-12"
@@ -14,7 +19,7 @@
         </div>
         <div class="col-12" style="position: relative;">
           <div class="d-flex flex-row col-12" style="position: absolute; margin-top: -15px; align-items: stretch;">
-            <div class="container-grow mr-2">
+            <div class="container-grow mr-4">
               {{product.name}}
             </div>
             <div class="container">

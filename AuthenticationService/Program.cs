@@ -9,10 +9,19 @@ using System.Reflection;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AuthenticationContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("salamdo_catalogue"))
+    options.UseNpgsql(builder.Configuration.GetConnectionString("salamdo_authentication"))
         .UseSnakeCaseNamingConvention()
     );
 builder.Services.AddTransient<DbContext>(sp => sp.GetRequiredService<AuthenticationContext>());
+
+builder.Services.AddDynamicGraphQL(options =>
+{
+    options.Assemblies.Add(Assembly.GetAssembly(typeof(User))!);
+    options.MaxQueryDepth = 2;
+    options.MinimumExecutionTime = 0;
+    options.Endpoint = builder.Configuration.GetValue<string>("GraphQL:Api:Endpoint");
+});
+
 
 builder.Services.AddCors(options =>
 {
@@ -57,6 +66,10 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.UseDynamicGraphQL();
-app.UseDynamicQLJwtValidation();
+//app.UseDynamicQLJwtValidation();
+
+var scope = app.Services.CreateScope();
+var dbContext = scope.ServiceProvider.GetRequiredService<DbContext>();
+await dbContext.Database.MigrateAsync();
 
 app.Run();
