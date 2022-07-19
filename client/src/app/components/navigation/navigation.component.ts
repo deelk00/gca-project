@@ -27,7 +27,6 @@ export class NavigationComponent implements OnInit {
   currentRoute: string = "";
 
   constructor(
-    private crudService: CrudService,
     private graphQL: GraphQLService,
     public authService: AuthService,
     private router: Router,
@@ -40,9 +39,11 @@ export class NavigationComponent implements OnInit {
     })
   }
 
-  productCategoryRouteIsActive = (link: ILink) => {
+  productCategoryRouteIsActive = (link: ILink, isSub: boolean = false) => {
     return this.currentRoute.startsWith('/product-category/' + link.id)
     || link.subLinks?.some(x => this.currentRoute.startsWith('/product-category/' + x.id))
+    || (isSub && this.links.some(x => this.currentRoute.startsWith('/product-category/' + x.id)
+        && x.subLinks?.some(x => x.id == link.id)));
   }
 
   setHoveringLink = (e: MouseEvent) => {

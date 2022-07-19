@@ -1,0 +1,6 @@
+.product-list {
+  height: calc(100vh - 174px - 64px - 64px - 16px);
+  max-height: calc(100vh - 174px - 64px - 64px - 16px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}

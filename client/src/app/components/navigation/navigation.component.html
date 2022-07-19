@@ -45,7 +45,7 @@
           />
         <div
           style="right: 4px; background-color:#ffa600; height: 24px;border-radius: 12px;box-shadow: #222d33 1px 1px 1px;"
-          [style.width]="24 + (shoppingCart.itemCount.toString().length - 1) * 10 + 'px'"
+          [style.width]="24 + (shoppingCart.itemCount.toString().length - 1) * 11 + 'px'"
           class="pos-absolute"
           >
           <small
@@ -68,6 +68,7 @@
       <span
         *ngIf="authService.currentAuthStatus === 0"
         class="p-2 px-3 cursor-pointer"
+        style="border-left: #222d33 solid 1px;"
         (click)="authService.logout()"
         >
         Sign Out
@@ -82,7 +83,7 @@
     <div class="px-3">
       <div *ngFor="let link of hoveringLink.subLinks"
         class="p-2 px-3 cursor-pointer navigation-link"
-        [class.active]="productCategoryRouteIsActive(link)"
+        [class.active]="productCategoryRouteIsActive(link, true)"
         [routerLink]="link.route"
         [id]="link.id"
         >

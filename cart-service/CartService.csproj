@@ -27,8 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Database\Model\" />
+    <ProjectReference Include="..\DynamicQL\DynamicQL.csproj" />
   </ItemGroup>
 
 </Project>

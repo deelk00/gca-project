@@ -1,22 +1,32 @@
 <div
-  class="mt-5 col-10 offset-1"
+  class="mt-5 col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4"
   >
   <h1 class="m-0 mb-2">Warenkorb</h1>
-  <div class="col-12">
+  <div class="col-12 product-list pr-2">
     <div
       *ngFor="let cartProduct of shoppingCart.$cart | async"
       class="col-12 my-2 d-flex"
       style="border: 1px solid #00000033; border-radius: 15px; height: 64px;"
-      >
+    >
       <div class="cursor-pointer container-grow" [routerLink]="'/products/' + cartProduct.product.id">
         <img
-          style="height: 64px; width: 44px; border-top-left-radius: 15px; border-bottom-left-radius: 15px; border-right: 2px solid #00000033;"
+          style="height: 64px;
+          width: 44px;
+          border-top-left-radius: 15px;
+          border-bottom-left-radius: 15px;
+          border-right: 2px solid #00000033;"
           [src]="shoppingCart.imageUrls[cartProduct.product.id][0]"
-          />
+        />
         <span class="container-grow ml-3 my-auto">
-          {{cartProduct.product.name}}
-        </span>
+        {{cartProduct.product.name}}
+      </span>
       </div>
+      <img
+        class="my-auto mr-3 ml-3 cursor-pointer"
+        style="height: 32px;"
+        (click)="shoppingCart.removeFromCart(cartProduct.product)"
+        src="assets/images/icons/delete.png"
+      />
       <div class="container py-2 pl-3" style="border-left: 1px #00000033 solid;">
         <input
           class="form-control"
@@ -25,7 +35,7 @@
           max="99"
           min="0"
           [(ngModel)]="cartProduct.count"
-          />
+        />
       </div>
     </div>
   </div>
