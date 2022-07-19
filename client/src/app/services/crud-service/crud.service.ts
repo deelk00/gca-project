@@ -5,6 +5,7 @@ import {environment} from "../../../environments/environment";
 import {BehaviorSubject, from, map, Observable, tap} from "rxjs";
 import {CacheService, StorageType} from "../cache-service/cache.service";
 import {ListTypeDef} from "../../model/type-defs/list-type-def.class";
+import { joinUrl } from '../../utility/helper.functions';
 
 export enum CrudOptions {
   None = 0,
@@ -61,20 +62,20 @@ export class CrudService {
 
   get = <T>(t: new () => TypeDef<T>, id: any, options: CrudOptions = CrudOptions.None) => {
     const typeDef = new t();
-    const route = (environment.urls as any)[typeDef.service] + typeDef.route + "/" + id;
+    const route = joinUrl((environment.urls as any)[typeDef.service], typeDef.route, id);
     return this.getRequest(typeDef, route, options) as BehaviorSubject<T | null>;
   }
 
   getList = <T>(t: new () => ListTypeDef<T>, page: number = 0, options: CrudOptions = CrudOptions.None) => {
     const typeDef = new t();
-    const route = (environment.urls as any)[typeDef.service] + typeDef.route + "?page=" + page;
+    const route = joinUrl((environment.urls as any)[typeDef.service], typeDef.route) + "?page=" + page;
     return this.getRequest(typeDef, route, options) as BehaviorSubject<T[] | null>;
   }
 
   post = <T>(t: new () =>  TypeDef<T>, entity: T, route?: string): Observable<T> => {
     const typeDef = new t();
     route ??= typeDef.route;
-    return from(axios.post((environment.urls as any)[typeDef.service] + route, entity))
+    return from(axios.post(joinUrl((environment.urls as any)[typeDef.service], route), entity))
       .pipe(map(x => x.data as T));
   }
 
@@ -83,7 +84,7 @@ export class CrudService {
   }
 
   delete = async <T>(t: new () => TypeDef<T>, id: any) => {
-    const routeFunc = (typeDef: TypeDef<T>) => (environment.urls as any)[typeDef.service] + typeDef.route + "/" + id;
+    const routeFunc = (typeDef: TypeDef<T>) => joinUrl((environment.urls as any)[typeDef.service], typeDef.route, id);
     return this.request(new t(), "delete", routeFunc);
   }
 }

@@ -2,8 +2,9 @@ nav {
     height: 4rem;
 }
 .navigation-link {
+  color: #00000060;
 }
-.navigation-link:first-child {
+.main-navbar:first-child {
   border-left: #222d33 solid 1px;
   padding-left: 16px;
 }
@@ -21,4 +22,7 @@ nav {
 }
 .logo-image {
   height: 48px;
+}
+.active {
+  color: #000000;
 }

@@ -8,6 +8,7 @@ import { ListTypeDef } from '../../model/type-defs/list-type-def.class';
 import { ProductTypeDef } from '../../model/type-defs/catalogue/product-type-def.class';
 import { environment } from 'src/environments/environment';
 import {ShoppingCartService} from "../../services/shopping-cart-service/shopping-cart.service";
+import { joinUrl } from 'src/app/utility/helper.functions';
 
 @Component({
   selector: 'app-product-overview',
@@ -34,7 +35,7 @@ export class ProductOverviewComponent implements OnInit, AfterViewInit, OnDestro
   constructor(
     private graphQL: GraphQLService,
     private activatedRoute: ActivatedRoute,
-    private shoppingCart: ShoppingCartService
+    public shoppingCart: ShoppingCartService
   ) {
     window.addEventListener("scroll", this.onScroll);
   }
@@ -108,7 +109,7 @@ export class ProductOverviewComponent implements OnInit, AfterViewInit, OnDestro
       if(!product.productImages) continue;
       this.imageUrls[product.id] = [];
       for (const image of product.productImages) {
-        this.imageUrls[product.id].push(environment.urls.catalogue + "images/download/" + image.imageId);
+        this.imageUrls[product.id].push(joinUrl(environment.urls.catalogue, "images/download/", image.imageId));
       }
     }
   }

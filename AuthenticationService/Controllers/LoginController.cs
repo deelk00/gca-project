@@ -15,6 +15,12 @@ namespace AuthenticationService.Controllers
             _context = context;
         }
 
+        [HttpGet]
+        public async Task<ActionResult<User>> Get()
+        {
+            return Ok(new User() { Id = Guid.NewGuid(), Username = "Hallo", Password = "Welt"});
+        }
+
         [HttpPost]
         public async Task<ActionResult<User>> Login([FromBody] User user)
         {

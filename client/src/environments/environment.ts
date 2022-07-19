@@ -11,8 +11,8 @@ const environment = {
   }
 };
 
-environment.urls.catalogue = new URL("catalogue", environment.host).href + "/";
-environment.urls.authentication = new URL("authentication", environment.host).href + "/";
+environment.urls.catalogue = joinUrl(environment.host, "/catalogue");
+environment.urls.authentication = joinUrl(environment.host, "authentication");
 
 export {
   environment
@@ -26,3 +26,4 @@ export {
  * on performance if an error is thrown.
  */
 // import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
+import { joinUrl } from '../app/utility/helper.functions';

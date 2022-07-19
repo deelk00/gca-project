@@ -7,14 +7,20 @@
     <div
       class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2"
       *ngFor="let product of $products | async"
-    >
+      >
       <div
         class="m-3 my-4"
       >
-        <div class="col-12">
+        <div class="col-12 pos-relative">
           <img
             class="product-image col-12"
             [src]="imageUrls[product.id][0]"
+            />
+          <img
+            alt="shopping-cart"
+            src="assets/images/icons/shopping-cart.png"
+            style="position:absolute; right: 0px;top:0px; width: 48px; margin: 0px; cursor: pointer; padding-right: 4px;"
+            (click)="shoppingCart.addToCart(product)"
             />
         </div>
         <div class="col-12" style="position: relative;">

@@ -6,7 +6,8 @@ import {GraphQLService} from "../../services/graph-ql-service/graph-q-l.service"
 import {DynamicQuery, GraphQLType} from "../../model/graph-ql/dynamic-query.class";
 import {ListTypeDef} from "../../model/type-defs/list-type-def.class";
 import { AuthService, AuthStatus } from '../../services/auth-service/auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { ShoppingCartService } from '../../services/shopping-cart-service/shopping-cart.service';
 
 export interface ILink {
   id: string;
@@ -23,13 +24,26 @@ export interface ILink {
 export class NavigationComponent implements OnInit {
   hoveringLink?: ILink;
   links: ILink[] = []
+  currentRoute: string = "";
 
   constructor(
     private crudService: CrudService,
     private graphQL: GraphQLService,
     public authService: AuthService,
-    private router: Router
-  ) { }
+    private router: Router,
+    public shoppingCart: ShoppingCartService
+  ) {
+    router.events.subscribe(event => {
+      if(event instanceof NavigationEnd) {
+        this.currentRoute = event.url;
+      }
+    })
+  }
+
+  productCategoryRouteIsActive = (link: ILink) => {
+    return this.currentRoute.startsWith('/product-category/' + link.id)
+    || link.subLinks?.some(x => this.currentRoute.startsWith('/product-category/' + x.id))
+  }
 
   setHoveringLink = (e: MouseEvent) => {
     const element = e.currentTarget as HTMLElement

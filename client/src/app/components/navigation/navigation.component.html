@@ -25,8 +25,9 @@
           class="container py-2"
         >
           <div
-            class="font-size-4 my-auto p-2 px-2 cursor-pointer navigation-link"
             *ngFor="let link of links"
+            class="font-size-4 my-auto p-2 px-2 cursor-pointer navigation-link main-navbar"
+            [class.active]="productCategoryRouteIsActive(link)"
             [routerLink]="link.route"
             [id]="link.id"
             (mouseenter)="setHoveringLink($event)"
@@ -37,15 +38,35 @@
       </div>
     </div>
     <div class="container font-size-3 my-auto">
+      <span class="pos-relative cursor-pointer" [routerLink]="'shopping-cart/' + (shoppingCart.id ?? '')">
+        <img
+          src="assets/images/icons/shopping-cart.png"
+          style="height: 40px; margin-right: 8px; margin-top: 2px; margin-bottom: -2px;"
+          />
+        <div
+          style="right: 4px; background-color:#ffa600; height: 24px;border-radius: 12px;box-shadow: #222d33 1px 1px 1px;"
+          [style.width]="24 + (shoppingCart.itemCount.toString().length - 1) * 10 + 'px'"
+          class="pos-absolute"
+          >
+          <small
+            style="right:6px; color:#fff; text-shadow: #000 2px 2px 2px;"
+            class="pos-absolute"
+            >
+            {{shoppingCart.itemCount}}
+          </small>
+        </div>
+      </span>
       <span
         routerLink="/login"
         *ngIf="authService.currentAuthStatus === 1"
-        class="p-2 px-3 cursor-pointer"
+        class="p-2 px-3 cursor-pointer active navigation-link"
+        style="border-left: #222d33 solid 1px;"
+        [class.active]="currentRoute.startsWith('/login')"
       >
         Sign In
       </span>
-      <span 
-        *ngIf="authService.currentAuthStatus === 0"  
+      <span
+        *ngIf="authService.currentAuthStatus === 0"
         class="p-2 px-3 cursor-pointer"
         (click)="authService.logout()"
         >
@@ -60,7 +81,8 @@
     >
     <div class="px-3">
       <div *ngFor="let link of hoveringLink.subLinks"
-        class="p-2 px-3 cursor-pointer"
+        class="p-2 px-3 cursor-pointer navigation-link"
+        [class.active]="productCategoryRouteIsActive(link)"
         [routerLink]="link.route"
         [id]="link.id"
         >

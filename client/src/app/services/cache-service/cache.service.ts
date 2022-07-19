@@ -30,7 +30,7 @@ export class CacheService {
     return value;
   }
 
-  Load = (key: string, storageType: StorageType = StorageType.LocalStorage) => {
+  Load = <T=any>(key: string, storageType: StorageType = StorageType.LocalStorage) => {
     let storage: Storage;
     switch (storageType) {
       case StorageType.Cookies:
@@ -44,6 +44,6 @@ export class CacheService {
         break;
     }
     const value = storage.getItem(key);
-    return value ? JSON.parse(value) : null;
+    return value ? JSON.parse(value) as T : null;
   }
 }

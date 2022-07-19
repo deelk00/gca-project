@@ -7,6 +7,7 @@ import { LoginComponent } from './pages/login/login.component';
 import {ProfileComponent} from "./pages/profile/profile.component";
 import {OrderOverviewComponent} from "./pages/order-overview/order-overview.component";
 import {OrderDetailComponent} from "./pages/order-detail/order-detail.component";
+import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,14 @@ const routes: Routes = [
   {
     path: "orders/:orderId",
     component: OrderDetailComponent
+  },
+  {
+    path: "shopping-cart",
+    component: ShoppingCartComponent
+  },
+  {
+    path: "shopping-cart/:cartId",
+    component: ShoppingCartComponent
   },
   {
     path: "",

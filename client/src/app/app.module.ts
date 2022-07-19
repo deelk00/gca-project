@@ -22,6 +22,7 @@ import { OrderOverviewComponent } from './pages/order-overview/order-overview.co
 import { OrderDetailComponent } from './pages/order-detail/order-detail.component';
 import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
 import { PaymentComponent } from './pages/payment/payment.component';
+import { joinUrl } from './utility/helper.functions';
 
 @NgModule({
   declarations: [
@@ -56,13 +57,13 @@ import { PaymentComponent } from './pages/payment/payment.component';
           default: {
             cache: new InMemoryCache(),
             link: httpLink.create({
-              uri: environment.urls.catalogue,
+              uri: joinUrl(environment.urls.catalogue, "graphql")
             }),
           },
           catalogue: {
             cache: new InMemoryCache(),
             link: httpLink.create({
-              uri: environment.urls.catalogue + "graphql",
+              uri: joinUrl(environment.urls.catalogue, "graphql"),
             }),
           }
         };
