@@ -29,7 +29,7 @@ namespace CheckoutService.Services
         public async Task<ShoppingCart?> AddOrderToCart(Guid cartId, Guid orderId)
         {
             var client = _httpClientFactory.CreateClient();
-            var content = JsonContent.Create(new { orderId = orderId });
+            var content = JsonContent.Create(orderId);
 
             var response = await client.PostAsync(Path.Join(_cartServiceUrl, cartId.ToString(), "add-order"), content);
 

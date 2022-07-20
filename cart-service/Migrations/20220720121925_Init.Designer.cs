@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CartService.Migrations
 {
     [DbContext(typeof(CartContext))]
-    [Migration("20220719193547_Init")]
+    [Migration("20220720121925_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

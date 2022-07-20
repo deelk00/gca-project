@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AuthenticationService.Migrations
 {
     [DbContext(typeof(AuthenticationContext))]
-    [Migration("20220718153423_Init")]
+    [Migration("20220720142955_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,15 +31,31 @@ namespace AuthenticationService.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
+                    b.Property<string>("Country")
+                        .HasColumnType("text")
+                        .HasColumnName("country");
+
+                    b.Property<string>("Number")
+                        .HasColumnType("text")
+                        .HasColumnName("number");
+
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("password");
 
+                    b.Property<string>("Street")
+                        .HasColumnType("text")
+                        .HasColumnName("street");
+
                     b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("username");
+
+                    b.Property<string>("ZipCode")
+                        .HasColumnType("text")
+                        .HasColumnName("zip_code");
 
                     b.HasKey("Id")
                         .HasName("pk_user");

@@ -1,1 +1,37 @@
-<p>product-detail works!</p>
+<div class="col-10 offset-1">
+    <div class="d-flex col-12">
+        <h1 class="container mr-3">
+            {{product?.name}}
+        </h1>
+        <h1 class="container">
+            {{product?.offerPrice ?? product?.price | currency}}€
+        </h1>
+    </div>
+    <div
+        class="col-12 col-md-6">
+        <img
+            class="col-12"
+            style="height: calc(100vh - 284px); object-fit: contain; object-position: 0px 0px;"
+            alt="product-image"
+            [src]="imageUrl" 
+            />
+    </div>
+    <div class="col-12 col-md-6"
+        style="height: calc(100vh - 284px); overflow-y: auto;"
+        >
+        <div class="ml-3" style="text-align: justify;">
+            {{product?.description}}
+        </div>        
+    </div>
+    <div class="col-12 d-flex"
+        style="height: 50px;"
+        >
+        <input 
+            type="button"
+            class="btn-primary ml-auto"
+            style="text-align: center;"
+            value="In den Warenkorb"
+            (click)="shoppingCart.addToCart(product!, 1)"
+            />     
+    </div>
+</div>

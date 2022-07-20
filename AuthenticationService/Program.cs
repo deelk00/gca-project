@@ -14,15 +14,6 @@ builder.Services.AddDbContext<AuthenticationContext>(options =>
     );
 builder.Services.AddTransient<DbContext>(sp => sp.GetRequiredService<AuthenticationContext>());
 
-builder.Services.AddDynamicGraphQL(options =>
-{
-    options.Assemblies.Add(Assembly.GetAssembly(typeof(User))!);
-    options.MaxQueryDepth = 2;
-    options.MinimumExecutionTime = 0;
-    options.Endpoint = builder.Configuration.GetValue<string>("GraphQL:Api:Endpoint");
-});
-
-
 builder.Services.AddCors(options =>
 {
     if (builder.Environment.IsDevelopment())
@@ -64,9 +55,6 @@ app.UseCors();
 app.UseAuthorization();
 
 app.MapControllers();
-
-app.UseDynamicGraphQL();
-//app.UseDynamicQLJwtValidation();
 
 var scope = app.Services.CreateScope();
 var dbContext = scope.ServiceProvider.GetRequiredService<DbContext>();

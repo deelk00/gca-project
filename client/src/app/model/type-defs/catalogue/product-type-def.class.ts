@@ -27,6 +27,7 @@ export class ProductTypeDef extends TypeDef<Product> {
   price = 0.0;
   offerPrice: number | undefined = 0.0;
   productImageIds: string[];
+  description: string = "";
 
   currency = CurrencyTypeDef;
   productCategory = ProductCategoryTypeDef;

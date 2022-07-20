@@ -1,1 +1,55 @@
-<p>profile works!</p>
+<div class="col-10 offset-1 col-md-6 offset-md-3 mt-4">
+    <h1>Profil von {{auth.user!.username}}</h1>
+    <div class="col-12">
+        <input 
+            type="text"
+            class="form-control my-2"
+            [(ngModel)]="auth.user!.username"
+            placeholder="Nutzername"
+            />
+        <input 
+            type="password"
+            class="form-control my-2"
+            [(ngModel)]="auth.user!.password"
+            placeholder="Passwort"
+            />
+        <input 
+            type="text"
+            class="form-control my-2"
+            [(ngModel)]="auth.user!.street"
+            placeholder="Straße"
+            />
+        <input 
+            type="text"
+            class="form-control my-2"
+            [(ngModel)]="auth.user!.zipCode"
+            placeholder="PLZ"
+            />
+        <input 
+            type="text"
+            class="form-control my-2"
+            [(ngModel)]="auth.user!.country"
+            placeholder="Land"
+            />
+        <input 
+            type="tel"
+            class="form-control my-2"
+            [(ngModel)]="auth.user!.number"
+            placeholder="Telefonnummer"
+            />
+    </div>
+    <div class="col-12">
+        <input 
+            class="btn-primary"
+            type="button"
+            (click)="userChanged()"
+            value="Speichern"
+            />
+        <input 
+            class="btn-primary"
+            type="button"
+            value="Zu den Bestellungen"
+            routerLink="/orders"
+            />
+    </div>
+</div>

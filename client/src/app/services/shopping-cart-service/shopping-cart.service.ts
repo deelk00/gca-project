@@ -94,6 +94,7 @@ export class ShoppingCartService {
   }
 
   clearCart = () => {
+    this.id = undefined;
     this.$cart.next([]);
   }
 

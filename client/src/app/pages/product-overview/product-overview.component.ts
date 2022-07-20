@@ -19,6 +19,24 @@ export class ProductOverviewComponent implements OnInit, AfterViewInit, OnDestro
   subs: Subscription[] = [];
   public $products: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
 
+  maxPrice: number = 999;
+  sortValue: string;
+
+  gender: string = "Mann";
+
+  get genderKeys() {return Object.keys(this.genders)}
+  genders: {[name: string]: string} = {
+    "Mann": "MALE",
+    "Frau": "FEMALe"
+  }
+
+  get sortValueKeys() {return Object.keys(this.sortValues)}
+  sortValues: {[name: string]: {sortBy: string, ascending: boolean}} = {
+    "Preis aufsteigend": {sortBy: "PRICE", ascending: true},
+    "Alphabetisch absteigend": {sortBy: "NAME", ascending: !false},
+    "Alphabetisch aufsteigend": {sortBy: "NAME", ascending: true}
+  }
+
   imageUrls: { [id: string]: string[] } = {}
 
   get products() { return this.$products.asObservable(); }
@@ -37,6 +55,7 @@ export class ProductOverviewComponent implements OnInit, AfterViewInit, OnDestro
     private activatedRoute: ActivatedRoute,
     public shoppingCart: ShoppingCartService
   ) {
+    this.sortValue = this.sortValueKeys[0];
     window.addEventListener("scroll", this.onScroll);
   }
 
@@ -44,6 +63,11 @@ export class ProductOverviewComponent implements OnInit, AfterViewInit, OnDestro
     if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight - this.scrollTolerance) {
       	this.loadProducts();
     }
+  }
+
+  filterChanged = (e: Event) => {
+    this.$products.next([]);
+    this.loadProducts();
   }
 
   ngOnDestroy(): void {
@@ -56,7 +80,14 @@ export class ProductOverviewComponent implements OnInit, AfterViewInit, OnDestro
     if(this.currentlyLoading) return;
     this.currentlyLoading = true;
     const sub = this.graphQL.executeQuery(
-      new DynamicQuery<ProductTypeDef, Product>(new ListTypeDef(ProductTypeDef), {"productCategoryId": GraphQLType.Guid, "skip": GraphQLType.Int})
+      new DynamicQuery<ProductTypeDef, Product>(new ListTypeDef(ProductTypeDef), 
+      {
+        "productCategoryId": GraphQLType.Guid, 
+        "skip": GraphQLType.Int,
+        "maxPrice": GraphQLType.Float,
+        "gender": "Gender",
+        sortBy: "SortBy"
+      })
         .include("brand")
         .include("productImages")
         .include("currency")
@@ -64,7 +95,11 @@ export class ProductOverviewComponent implements OnInit, AfterViewInit, OnDestro
       {
         "productCategoryId": this.categoryId,
         "skip": this.$products.getValue().length,
-        "take": (this.rowSize ?? 1) * this.rowsToLoad
+        "take": (this.rowSize ?? 1) * this.rowsToLoad,
+        "sortBy": this.sortValues[this.sortValue].sortBy,
+        "sortByAscending": this.sortValues[this.sortValue].ascending,
+        "maxPrice": this.maxPrice,
+        "gender": this.genders[this.gender] 
       }, {}, false
     ).subscribe(x => {
       if(!x) return;
@@ -91,7 +126,6 @@ export class ProductOverviewComponent implements OnInit, AfterViewInit, OnDestro
       }
 
       if(swi) {
-
         swi = false;
         this.subs.push(this.$products.subscribe(this.processProducts));
         this.activatedRoute.params.subscribe(params => {

@@ -6,7 +6,7 @@ import { CrudService } from '../../services/crud-service/crud.service';
 import { OrderTypeDef } from '../../model/type-defs/checkout/order-type-def.class';
 import axios from 'axios';
 import { environment } from 'src/environments/environment';
-import { from, map } from 'rxjs';
+import { from, map, catchError } from 'rxjs';
 import { joinUrl } from '../../utility/helper.functions';
 import { Order } from '../../model/types/checkout/order.class';
 
@@ -36,12 +36,17 @@ export class ShoppingCartComponent implements OnInit {
   sendOrder = () => {
     if(!this.shoppingCart.id) return;
     this.processing = true;
-    from(axios.post(joinUrl(environment.urls.checkout, this.shoppingCart.id)))
+    from(axios.post(joinUrl("http://localhost:5030/", "orders", this.shoppingCart.id)))
       .pipe(
-        map(x => x.data as Order)
+        map(x => x.data as Order),
+        catchError(err => {
+          this.processing = false;
+          throw err;
+        })
       )
       .subscribe(order => {
         this.router.navigate(["/checkout", order.id]);
+        this.shoppingCart.clearCart();
       })
   }
 }

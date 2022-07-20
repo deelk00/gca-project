@@ -1,11 +1,40 @@
 
 <div class="mt-4 offset-1 col-10">
   <div class="row">
-
+    <select 
+      [(ngModel)]="sortValue"
+      class="p-2 font-size-3 mr-2"
+      (ngModelChange)="filterChanged($event)"
+      >
+      <option *ngFor="let sortValue of sortValueKeys" [value]="sortValue">
+        {{sortValue}}  
+      </option>
+    </select>
+    <select 
+      [(ngModel)]="gender"
+      class="p-2 font-size-3 mr-2"
+      (ngModelChange)="filterChanged($event)"
+      >
+      <option *ngFor="let gender of genderKeys" [value]="gender">
+        {{gender}}  
+      </option>
+    </select>
+    <span class="font-size-3 pr-3" style="border: 1px solid #000000;">
+      <input 
+        class="p-2 font-size-3"
+        style="min-width: 100px; width:100px; text-align: right; border: none;"
+        type="number"
+        placeholder="Max. Preis" 
+        min="0" 
+        [(ngModel)]="maxPrice" 
+        (blur)="filterChanged($event)"
+        >
+        €
+    </span>
   </div>
   <div #productContainer>
     <div
-      class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2"
+      class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2 cursor-pointer"
       *ngFor="let product of $products | async"
       >
       <div
@@ -15,6 +44,7 @@
           <img
             class="product-image col-12"
             [src]="imageUrls[product.id][0]"
+            [routerLink]="'/products/' + product.id"
             />
           <img
             alt="shopping-cart"
@@ -23,7 +53,7 @@
             (click)="shoppingCart.addToCart(product)"
             />
         </div>
-        <div class="col-12" style="position: relative;">
+        <div class="col-12" style="position: relative;" [routerLink]="'/products/' + product.id">
           <div class="d-flex flex-row col-12" style="position: absolute; margin-top: -15px; align-items: stretch;">
             <div class="container-grow mr-4">
               {{product.name}}

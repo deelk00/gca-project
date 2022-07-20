@@ -29,15 +29,31 @@ namespace AuthenticationService.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
+                    b.Property<string>("Country")
+                        .HasColumnType("text")
+                        .HasColumnName("country");
+
+                    b.Property<string>("Number")
+                        .HasColumnType("text")
+                        .HasColumnName("number");
+
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("password");
 
+                    b.Property<string>("Street")
+                        .HasColumnType("text")
+                        .HasColumnName("street");
+
                     b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("username");
+
+                    b.Property<string>("ZipCode")
+                        .HasColumnType("text")
+                        .HasColumnName("zip_code");
 
                     b.HasKey("Id")
                         .HasName("pk_user");

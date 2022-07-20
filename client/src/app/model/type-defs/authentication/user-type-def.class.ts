@@ -11,4 +11,8 @@ export class UserTypeDef extends TypeDef<User> {
   id: IdDescriptor<User> = new IdDescriptor<User>("guid");
   username: string = "";
   password?: string = "";
+  zipCode?: string = "";
+  street?: string = "";
+  number?: string = "";
+  country?: string = "";
 }

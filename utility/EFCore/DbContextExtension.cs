@@ -56,7 +56,7 @@ namespace Utility.EFCore
 
                 return result.Entity;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 await transaction.RollbackAsync();
                 throw;

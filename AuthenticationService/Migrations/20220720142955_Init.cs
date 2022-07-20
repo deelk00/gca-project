@@ -15,7 +15,11 @@ namespace AuthenticationService.Migrations
                 {
                     id = table.Column<Guid>(type: "uuid", nullable: false),
                     username = table.Column<string>(type: "text", nullable: false),
-                    password = table.Column<string>(type: "text", nullable: false)
+                    password = table.Column<string>(type: "text", nullable: false),
+                    street = table.Column<string>(type: "text", nullable: true),
+                    zip_code = table.Column<string>(type: "text", nullable: true),
+                    country = table.Column<string>(type: "text", nullable: true),
+                    number = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {

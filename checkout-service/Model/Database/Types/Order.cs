@@ -8,6 +8,7 @@ namespace CheckoutService.Model.Database.Types
     {
         public Guid Id { get; set; }
         public Guid CartId { get; set; }
+        public Guid UserId { get; set; }
         public OrderStatus OrderStatus { get; set; }
 
         [ForeignKey(nameof(Payment))]

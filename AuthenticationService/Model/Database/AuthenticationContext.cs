@@ -14,7 +14,7 @@ namespace AuthenticationService.Model.Database
         {
             if (builder.IsConfigured) return;
 
-            const string connectionString = "User ID=postgres;Password=Test123!;Host=localhost;Port=5432;Database=salamdo_catalogue;Pooling=true;Connection Lifetime=0;";
+            const string connectionString = "User ID=postgres;Password=Test123!;Host=localhost;Port=5432;Database=salamdo_authentication;Pooling=true;Connection Lifetime=0;";
 
             builder.UseNpgsql(connectionString)
                 .UseSnakeCaseNamingConvention();

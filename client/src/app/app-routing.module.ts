@@ -24,7 +24,7 @@ const routes: Routes = [
     component: ProductDetailComponent
   },
   {
-    path: "profile/:userId",
+    path: "profile",
     component: ProfileComponent
   },
   {

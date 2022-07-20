@@ -8,6 +8,7 @@ using GraphiQl;
 using GraphQL.Types;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
+using CatalogueService.Model.Database.Enums;
 using Utility.Api.Middlewares;
 using Utility.EFCore;
 using Utility.Other.Extensions;
@@ -47,6 +48,7 @@ builder.Services.AddCors(options =>
         });
     }
 });
+builder.Services.AddSingleton<EnumerationGraphType<SortBy>>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

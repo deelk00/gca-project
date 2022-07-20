@@ -14,7 +14,8 @@ export enum GraphQLType {
   String = 1 << 1,
   Int = 1 << 2,
   Guid = 1 << 3,
-  Boolean = 1 << 4
+  Boolean = 1 << 4,
+  Float = 1 << 5
 }
 
 export class DynamicQuery<TDef extends TypeDef<T>, T> {
@@ -26,7 +27,7 @@ export class DynamicQuery<TDef extends TypeDef<T>, T> {
 
   constructor(
     typeDefCtor: (new (...args: any) => TDef) | TDef | ListTypeDef<T>,
-    public variables: {[name: string]: GraphQLType} = {}
+    public variables: {[name: string]: GraphQLType | string} = {}
   ) {
     const instance = typeof(typeDefCtor) === "function" ? new typeDefCtor() : typeDefCtor;
     if (instance instanceof ListTypeDef) {
@@ -52,19 +53,28 @@ export class DynamicQuery<TDef extends TypeDef<T>, T> {
     const varKeys = Object.keys(this.variables);
     for (const key of varKeys) {
       varString += `$${key[0] === "$" ? key.substring(1) : key}:`;
-      if((this.variables[key] & GraphQLType.Guid) === GraphQLType.Guid) {
+      const value = this.variables[key]
+      if(typeof(value) === "string"){
+        varString += value;
+        continue;
+      }
+      
+      if((value & GraphQLType.Guid) === GraphQLType.Guid) {
         varString += "Guid";
       }
-      else if((this.variables[key] & GraphQLType.Int) === GraphQLType.Int) {
+      else if((value & GraphQLType.Int) === GraphQLType.Int) {
         varString += "Int";
       }
-      else if((this.variables[key] & GraphQLType.String) === GraphQLType.String) {
+      else if((value & GraphQLType.String) === GraphQLType.String) {
         varString += "String";
       }
-      else if((this.variables[key] & GraphQLType.Boolean) === GraphQLType.Boolean) {
+      else if((value & GraphQLType.Boolean) === GraphQLType.Boolean) {
         varString += "Boolean";
       }
-      varString += (this.variables[key] & GraphQLType.NonNullable) === GraphQLType.NonNullable ? "!" : "";
+      else if((value & GraphQLType.Float) === GraphQLType.Float) {
+        varString += "Float";
+      }
+      varString += (value & GraphQLType.NonNullable) === GraphQLType.NonNullable ? "!" : "";
     }
 
     return varString;

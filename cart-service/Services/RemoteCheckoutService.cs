@@ -16,6 +16,8 @@
         {
             var client = httpClientFactory.CreateClient();
             var response = await client.GetAsync(Path.Join(checkoutServiceUrl, orderId.ToString()));
+            Console.WriteLine(Path.Join(checkoutServiceUrl, orderId.ToString()));
+            Console.WriteLine(response.ReasonPhrase);
             return response.IsSuccessStatusCode;
         }
     }

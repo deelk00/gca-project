@@ -26,7 +26,7 @@ export class CrudService {
     typeDef: TypeDef<T> | (new () => TypeDef<T>),
     httpMethod: keyof typeof axios,
     getRoute: ((typeDef: TypeDef<T>) => string)
-      | string = (typeDef: TypeDef<T>) => (environment.urls as any)[typeDef.service] + typeDef.route,
+      | string = (typeDef: TypeDef<T>) => joinUrl((environment.urls as any)[typeDef.service], typeDef.route),
     config: AxiosRequestConfig<any> = {},
     body: any = undefined
   ): Observable<AxiosResponse> => {

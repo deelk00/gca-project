@@ -32,8 +32,16 @@ namespace CheckoutService.Controllers
             return Ok(order?.ToResponseDict(ToResponseDictOptions.None));
         }
 
-        [HttpPost]
-        public async Task<object> PostOrder([FromBody] Guid cartId)
+        [HttpGet("from-user/{userId:guid}")]
+        public async Task<object> GetOrdersFromUser([FromRoute] Guid userId)
+        {
+            var response = (await _context.Set<Order>().Where(x => x.UserId == userId).ToListAsync());
+            
+            return Ok(response.Select(x => x.ToResponseDict(ToResponseDictOptions.None)));
+        }
+        
+        [HttpPost("{cartId:guid}")]
+        public async Task<object> PostOrder([FromRoute] Guid cartId)
         {
             var order = new Order()
             {
@@ -44,9 +52,16 @@ namespace CheckoutService.Controllers
             var cart = await _remoteCartService.GetShoppingCart(cartId);
 
             if (cart == null) return BadRequest("the cart could not be found");
-
-            order = await _context.TransactionAsync(x => _context.AddAsync(order));
-
+            try
+            {
+                order.UserId = cart.UserId;
+                order = await _context.TransactionAsync(x => _context.AddAsync(order));
+            }
+            catch(Exception ex)
+            {
+                
+            }
+            
             cart = await _remoteCartService.AddOrderToCart(cart.Id, order.Id);
 
             if (cart == null) return BadRequest("error while processing order");

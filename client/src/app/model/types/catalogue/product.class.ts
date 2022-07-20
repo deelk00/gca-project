@@ -16,6 +16,7 @@ export class Product {
   gender: Gender;
   price: number;
   offerPrice?: number;
+  description: string;
 
   tagIds: string[];
   filterPropertyIds: string[];
