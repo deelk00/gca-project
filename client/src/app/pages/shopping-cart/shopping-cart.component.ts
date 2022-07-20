@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingCartService } from '../../services/shopping-cart-service/shopping-cart.service';
 import { GraphQLService } from '../../services/graph-ql-service/graph-q-l.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CrudService } from '../../services/crud-service/crud.service';
 import { OrderTypeDef } from '../../model/type-defs/checkout/order-type-def.class';
 import axios from 'axios';
@@ -9,6 +9,8 @@ import { environment } from 'src/environments/environment';
 import { from, map, catchError } from 'rxjs';
 import { joinUrl } from '../../utility/helper.functions';
 import { Order } from '../../model/types/checkout/order.class';
+import { AuthService } from 'src/app/services/auth-service/auth.service';
+import { CacheService } from 'src/app/services/cache-service/cache.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -16,7 +18,7 @@ import { Order } from '../../model/types/checkout/order.class';
   styleUrls: ['./shopping-cart.component.scss']
 })
 export class ShoppingCartComponent implements OnInit {
-
+  id?: string;
   processing: boolean = false;
 
   get price() {return this.shoppingCart.$cart.getValue().length > 0
@@ -25,12 +27,23 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   constructor(
+    private cache: CacheService,
+    private auth: AuthService,
+    private activeRoute: ActivatedRoute,
     public shoppingCart: ShoppingCartService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
     ) { }
 
   ngOnInit(): void {
+    this.route.data.subscribe(d => {
+      const id = d["cartId"];
 
+      this.id = id;
+      this.shoppingCart = new ShoppingCartService(this.cache, this.auth);
+      this.shoppingCart.id = id;
+      this.shoppingCart.refreshCart();
+    })
   }
 
   sendOrder = () => {

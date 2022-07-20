@@ -19,12 +19,12 @@ export class OrderOverviewComponent implements OnInit {
 
   ngOnInit(): void {
     //from(axios.get(joinUrl(environment.urls.checkout, "orders", "from-user", this.auth.user!.id)))
-    from(axios.get(joinUrl("http://localhost:5030", "orders", "from-user", this.auth.user!.id)))
+    from(axios.get(joinUrl(environment.urls.checkout, "orders", "from-user", this.auth.user!.id)))
       .pipe(map(x => x.data as Order[]))
       .subscribe(x => {
-        console.log(x);
-        
         this.orders = x;
+        console.log(x);
+
       })
   }
 

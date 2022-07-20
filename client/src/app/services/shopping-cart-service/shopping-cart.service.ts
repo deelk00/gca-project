@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, from } from 'rxjs';
+import { BehaviorSubject, from, map } from 'rxjs';
 import { joinUrl } from 'src/app/utility/helper.functions';
 import { environment } from 'src/environments/environment';
 import { Product } from '../../model/types/catalogue/product.class';
@@ -7,6 +7,7 @@ import { CacheService } from '../cache-service/cache.service';
 import { CrudService } from '../crud-service/crud.service';
 import { AuthService, AuthStatus } from '../auth-service/auth.service';
 import axios from 'axios';
+import { ActivatedRoute } from '@angular/router';
 
 export interface CartProduct {
   product: Product;
@@ -35,8 +36,7 @@ export class ShoppingCartService {
 
   constructor(
     private cache: CacheService,
-    private crud: CrudService,
-    private auth: AuthService
+    private auth: AuthService,
     ) {
     const cacheKey = "shopping-cart-service:cached-shopping-cart";
     const cachedValue = cache.Load<CartProduct[]>(cacheKey);
@@ -54,9 +54,7 @@ export class ShoppingCartService {
     this.$cart.subscribe(value => {
       cache.Save(cacheKey, value);
       this.processProducts(value.map(x => x.product));
-      console.log("awd");
       if(!this.id) return;
-      console.log("awd");
 
       from(axios.put(joinUrl("http://localhost:5020/", "carts", this.id), this.$cart.getValue().map(x => {return {count: x.count, productId: x.product.id}}))).subscribe(x => {
         console.log(x);
@@ -67,6 +65,25 @@ export class ShoppingCartService {
 
   find = (id: string) => {
     return this.$cart.getValue().find(x => x.product.id === id);
+  }
+
+  refreshCart = () => {
+    if(!this.id) return;
+    from(axios.get(joinUrl(environment.urls.cart, "carts", this.id)))
+      .pipe(map(x => x.data as any))
+      .subscribe(async x => {
+        let items = x.CartItems as {id: string, productId: string, count: number}[];
+        const promises = items.map(item => {
+          return axios.get(joinUrl(environment.urls.catalogue, "products", item.productId));
+        });
+
+        const cart: CartProduct[] = [];
+        for (let i = 0; i < items.length; i++) {
+          const result = await promises[i];
+          cart.push({count: items[i].count, product: result.data})
+        }
+        this.$cart.next(cart);
+      })
   }
 
   contains = (id: string) => !!this.find(id);

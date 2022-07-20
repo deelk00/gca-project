@@ -62,7 +62,7 @@ namespace CheckoutService.Controllers
                 
             }
             
-            cart = await _remoteCartService.AddOrderToCart(cart.Id, order.Id);
+            //cart = await _remoteCartService.AddOrderToCart(cart.Id, order.Id);
 
             if (cart == null) return BadRequest("error while processing order");
 

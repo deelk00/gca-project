@@ -1,3 +1,13 @@
-<div class="col-12">
-    
+<div class="col-10 offset-1 col-md-6 offset-md-3 col-lg-4 offset-4 col-xxl-2 offset-xxl-5 mt-3">
+    <div class="col-12 d-flex" *ngFor="let order of orders" [routerLink]="'/cart/' + order.cartId">
+      <div class="container-grow font-size-3">
+        {{order.id}}
+      </div>
+      <div class="container font-size-3">
+        {{order.orderStatus === 1 ? "Bezahlung ausstehend"
+          : order.orderStatus === 2 ? "Bezahlt"
+          : order.orderStatus === 3 ? "Versendet"
+          : "Bestellung angekommen"}}
+      </div>
+    </div>
 </div>
