@@ -36,6 +36,33 @@ services:
       - catalogue-network
       - postgres-network
 
+  cart-service:
+    build: 
+      context: ./
+      dockerfile: ./cart-service/Dockerfile
+    depends_on:
+      - postgres
+    environment:
+      - ConnectionStrings__salamdo_cart=User ID=postgres;Password=Test123!;Host=postgres;Port=5432;Database=salamdo_cart;Pooling=true;Connection Lifetime=0;
+      - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - cart-network
+      - postgres-network
+
+  checkout-service:
+    build: 
+      context: ./
+      dockerfile: ./checkout-service/Dockerfile
+    depends_on:
+      - postgres
+    environment:
+      - ConnectionStrings__salamdo_checkout=User ID=postgres;Password=Test123!;Host=postgres;Port=5432;Database=salamdo_checkout;Pooling=true;Connection Lifetime=0;
+      - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - checkout-network
+      - postgres-network
+
+
   client-service:
     build: ./client
     networks:
@@ -47,14 +74,19 @@ services:
     ports:
       - 8080:80
     depends_on:
-      - client
+      - client-service
       - catalogue-service
       - pgAdmin
+      - cart-service
+      - checkout-service
+      - authentication-service
     networks:
       - client-network
       - catalogue-network
       - pgAdmin-network
       - authentication-network
+      - cart-network
+      - checkout-network
 
   pgAdmin: 
     image: dpage/pgadmin4
@@ -73,4 +105,6 @@ networks:
   authentication-network:
   catalogue-network:
   client-network:
+  cart-network:
+  checkout-network:
   pgAdmin-network:

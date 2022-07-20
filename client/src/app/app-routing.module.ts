@@ -8,6 +8,7 @@ import {ProfileComponent} from "./pages/profile/profile.component";
 import {OrderOverviewComponent} from "./pages/order-overview/order-overview.component";
 import {OrderDetailComponent} from "./pages/order-detail/order-detail.component";
 import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
+import { PaymentComponent } from './pages/payment/payment.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: "shopping-cart/:cartId",
     component: ShoppingCartComponent
+  },
+  {
+    path: "checkout/:orderId",
+    component: PaymentComponent
   },
   {
     path: "",

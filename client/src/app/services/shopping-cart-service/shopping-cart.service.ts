@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject} from "rxjs";
+import { BehaviorSubject, from } from 'rxjs';
 import { joinUrl } from 'src/app/utility/helper.functions';
 import { environment } from 'src/environments/environment';
 import { Product } from '../../model/types/catalogue/product.class';
 import { CacheService } from '../cache-service/cache.service';
+import { CrudService } from '../crud-service/crud.service';
+import { AuthService, AuthStatus } from '../auth-service/auth.service';
+import axios from 'axios';
 
 export interface CartProduct {
   product: Product;
@@ -30,13 +33,35 @@ export class ShoppingCartService {
     return count;
   }
 
-  constructor(private cache: CacheService) {
+  constructor(
+    private cache: CacheService,
+    private crud: CrudService,
+    private auth: AuthService
+    ) {
     const cacheKey = "shopping-cart-service:cached-shopping-cart";
     const cachedValue = cache.Load<CartProduct[]>(cacheKey);
+
+    auth.$authStatus.subscribe(x => {
+      if(x === AuthStatus.IsAuthenticated && !this.id) {
+        from(axios.post(joinUrl(environment.urls.cart, "carts/create", auth.user!.id)))
+          .subscribe(cart => {
+            this.id = cart.data.id;
+          })
+      }
+    })
+
     this.$cart.next(cachedValue ?? []);
     this.$cart.subscribe(value => {
       cache.Save(cacheKey, value);
       this.processProducts(value.map(x => x.product));
+      console.log("awd");
+      if(!this.id) return;
+      console.log("awd");
+
+      from(axios.put(joinUrl("http://localhost:5020/", "carts", this.id), this.$cart.getValue().map(x => {return {count: x.count, productId: x.product.id}}))).subscribe(x => {
+        console.log(x);
+
+      });
     });
   }
 
@@ -64,14 +89,13 @@ export class ShoppingCartService {
     }
   }
   removeFromCart = (product: Product) => {
-    this.$cart.next(this.$cart.getValue().filter(x => x.product.id !== product.id));
+    this.$cart.next(this.$cart.getValue().filter(x => x.product.id !== product.id) ?? []);
 
   }
 
   clearCart = () => {
     this.$cart.next([]);
   }
-
 
   processProducts = (products: Product[]) => {
     for (const product of products) {

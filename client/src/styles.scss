@@ -22,6 +22,17 @@ body {
   }
 }
 
+.btn-primary {
+  border: #00000033 1px solid;
+  padding: 12px;
+  background-color: #d59500;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  text-shadow: #000000 2px 2px 2px;
+  cursor: pointer;
+}
+
 @import "assets/styles/variables.scss";
 @import "assets/styles/display.scss";
 @import "assets/styles/colors.scss";

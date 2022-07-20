@@ -5,14 +5,13 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["CheckoutService/CheckoutService.csproj", "CheckoutService/"]
-RUN dotnet restore "CheckoutService/CheckoutService.csproj"
 COPY . .
-WORKDIR "/src/CheckoutService"
-RUN dotnet build "CheckoutService.csproj" -c Release -o /app/build
+RUN dotnet restore
+# RUN dotnet build "utility/Utility.csproj" -c Release
+# RUN dotnet build "checkout-service/CheckoutService.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "CheckoutService.csproj" -c Release -o /app/publish
+RUN dotnet publish "checkout-service/CheckoutService.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app

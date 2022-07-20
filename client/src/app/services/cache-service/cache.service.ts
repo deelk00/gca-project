@@ -13,6 +13,22 @@ export class CacheService {
 
   constructor() { }
 
+  clear = (key: string,  storageType: StorageType = StorageType.LocalStorage) => {
+    let storage: Storage;
+    switch (storageType) {
+      case StorageType.Cookies:
+        throw "not implemented yet";
+        break;
+      case StorageType.LocalStorage:
+        storage = window.localStorage;
+        break;
+      case StorageType.SessionStorage:
+        storage ??= window.sessionStorage;
+        break;
+    }
+    storage.removeItem(key);
+  }
+
   Save = (key: string, value: any, storageType: StorageType = StorageType.LocalStorage) => {
     let storage: Storage;
     switch (storageType) {

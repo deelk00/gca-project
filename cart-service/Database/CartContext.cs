@@ -20,7 +20,7 @@ namespace CartService.Database
         {
             if (builder.IsConfigured) return;
             
-            const string connectionString = "User ID=postgres;Password=Test123!;Host=localhost;Port=5432;Database=salamdo_cart-service;Pooling=true;Connection Lifetime=0;";
+            const string connectionString = "User ID=postgres;Password=Test123!;Host=localhost;Port=5432;Database=salamdo_cart;Pooling=true;Connection Lifetime=0;";
             
             builder.UseNpgsql(connectionString)
                 .UseSnakeCaseNamingConvention();

@@ -6,6 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>36b55b15-87a6-440a-858b-7be410ddeb49</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <ErrorOnDuplicatePublishOutputFiles>
+      false
+    </ErrorOnDuplicatePublishOutputFiles>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,6 +31,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DynamicQL\DynamicQL.csproj" />
+    <ProjectReference Include="..\utility\Utility.csproj" />
   </ItemGroup>
 
 </Project>

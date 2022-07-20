@@ -11,8 +11,8 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY . .
 RUN dotnet restore
-RUN dotnet build "utility/Utility.csproj" -c Release
-RUN dotnet build "catalogue-service/CatalogueService.csproj" -c Release -o /app/build
+# RUN dotnet build "utility/Utility.csproj" -c Release
+# RUN dotnet build "catalogue-service/CatalogueService.csproj" -c Release -o /app/build
 
 FROM build AS publish
 RUN dotnet publish "catalogue-service/CatalogueService.csproj" -c Release -o /app/publish

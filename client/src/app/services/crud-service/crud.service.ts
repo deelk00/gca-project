@@ -40,7 +40,7 @@ export class CrudService {
     }
   }
 
-  getRequest = <T>(typeDef: TypeDef<T>, route: string, options: CrudOptions) => {
+  private getRequest = <T>(typeDef: TypeDef<T>, route: string, options: CrudOptions) => {
     const request = this.request(typeDef, "get", route);
     const cacheKey = route;
     const behaviorSubject = new BehaviorSubject<T | null>(null);
