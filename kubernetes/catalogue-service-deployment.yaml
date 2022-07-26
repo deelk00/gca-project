@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: C:\Users\deelk\Desktop\Studium\kompose.exe convert
+    kompose.version: 1.26.1 (a9d05d509)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: catalogue-service
+  name: catalogue-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: catalogue-service
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: C:\Users\deelk\Desktop\Studium\kompose.exe convert
+        kompose.version: 1.26.1 (a9d05d509)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/cache-network: "true"
+        io.kompose.network/catalogue-network: "true"
+        io.kompose.network/postgres-network: "true"
+        io.kompose.service: catalogue-service
+    spec:
+      containers:
+        - env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Development
+            - name: ConnectionStrings__salamdo_catalogue
+              value: User ID=postgres;Password=Test123!;Host=postgres;Port=5432;Database=salamdo_catalogue;Pooling=true;Connection Lifetime=0;
+          image: catalogue-service
+          name: catalogue-service
+          resources: {}
+      restartPolicy: Always
+status: {}
