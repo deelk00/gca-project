@@ -49,7 +49,7 @@ export class ShoppingCartComponent implements OnInit {
   sendOrder = () => {
     if(!this.shoppingCart.id) return;
     this.processing = true;
-    from(axios.post(joinUrl("http://localhost:5030/", "orders", this.shoppingCart.id)))
+    from(axios.post(joinUrl(environment.urls.checkout, "orders", this.shoppingCart.id)))
       .pipe(
         map(x => x.data as Order),
         catchError(err => {

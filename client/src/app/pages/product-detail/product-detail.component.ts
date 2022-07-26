@@ -37,14 +37,13 @@ export class ProductDetailComponent implements OnInit {
           .include("brand")
           .include("productImages")
           .include("currency")
-          .getQuery(), 
+          .getQuery(),
         {
         id: this.productId
       }).subscribe(x => {
         if(!x) return;
         this.product = x;
         console.log(x);
-        
       })
     });
   }
