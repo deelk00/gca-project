@@ -1,6 +1,10 @@
-﻿using AuthenticationService.Model.Database.Types;
+﻿using System.Security.Claims;
+using System.Text;
+using AuthenticationService.Model.Database.Types;
+using AuthenticationService.Model.Responses;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Utility;
 using Utility.EFCore;
 using Utility.Other.Extensions;
 
@@ -13,9 +17,11 @@ namespace AuthenticationService.Controllers
     public class LoginController : Controller
     {
         private readonly DbContext _context;
-        public LoginController(DbContext context)
+        private readonly IConfiguration _config;
+        public LoginController(DbContext context, IConfiguration config)
         {
             _context = context;
+            _config = config;
         }
 
         [HttpGet]
@@ -25,24 +31,56 @@ namespace AuthenticationService.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<User>> Login([FromBody] LoginRequest req)
+        public async Task<ActionResult<AuthenticationResponse>> Login([FromBody] LoginRequest req)
         {
             var u = await _context.Set<User>().FirstOrDefaultAsync(x => x.Username == req.username);
-            if (u != null)
+
+            if (u == null)
             {
-                if(u.Password == req.password) return Ok(u.ToResponseDict());
-                return Unauthorized();
+                u = new User()
+                {
+                    Username = req.username,
+                    Password = req.password
+                };
+                u = await _context.TransactionAsync(x => _context.AddAsync(u));
             }
             
-            u = new User()
+            if (u.Password != req.password)
             {
-                Username = req.username,
-                Password = req.password
-            };
-            u = await _context.TransactionAsync(x => _context.AddAsync(u));
-            u.Password = "";
+                return Unauthorized();
+            }
 
-            return u;
+            var payload = new List<Claim>()
+            {
+                new Claim("jti", Guid.NewGuid().ToString()),
+                new Claim("sub", u.Id.ToString())
+            };
+
+            var (authToken, refreshToken) = Helper.CreateAuthTokenPair(
+                Encoding.UTF8.GetBytes(_config.GetValue<string>("Jwt:PrivateKey")),
+                _config.GetValue<string>("Jwt:Issuer"),
+                _config.GetValue<string>("Jwt:Audience"),
+                _config.GetValue<uint>("Jwt:AuthExpiresIn"),
+                _config.GetValue<uint>("Jwt:AuthExpiresIn"),
+                payload
+                );
+            
+            var res = new AuthenticationResponse
+            {
+                User = u,
+                AuthToken = authToken,
+                RefreshToken = refreshToken,
+                AuthExpiresIn = _config.GetValue<uint>("Jwt:AuthExpiresIn"),
+                RefreshExpiresIn = _config.GetValue<uint>("Jwt:AuthExpiresIn"),
+            };
+
+            return res;
+        }
+        
+        [HttpPost]
+        public async Task<ActionResult<AuthenticationResponse>> Refresh ([FromBody] string refreshToken)
+        {
+            
         }
     }
 }

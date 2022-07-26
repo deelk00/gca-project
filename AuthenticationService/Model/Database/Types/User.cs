@@ -1,4 +1,5 @@
-﻿using DynamicQL.Attributes;
+﻿using System.Text.Json.Serialization;
+using DynamicQL.Attributes;
 using DynamicQL.Attributes.Enums;
 
 namespace AuthenticationService.Model.Database.Types
@@ -8,6 +9,7 @@ namespace AuthenticationService.Model.Database.Types
     {
         public Guid Id { get; set; }
         public string Username { get; set; }
+        [JsonIgnore]
         public string Password { get; set; }
         public string? Street { get; set; }
         public string? ZipCode { get; set; }

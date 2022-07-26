@@ -5,6 +5,9 @@ using DynamicQL.Extensions;
 using GraphiQl;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using Utility.Api.Middlewares;
+using Utility.Extensions;
+using Utility.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +16,8 @@ builder.Services.AddDbContext<AuthenticationContext>(options =>
         .UseSnakeCaseNamingConvention()
     );
 builder.Services.AddTransient<DbContext>(sp => sp.GetRequiredService<AuthenticationContext>());
+
+builder.AddRedis();
 
 builder.Services.AddCors(options =>
 {
@@ -52,7 +57,10 @@ if (app.Configuration.GetValue<bool>("GraphQL:UI:IsActive"))
 }
 app.UseCors();
 
+app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseMiddleware<ValidateJwtMiddleware>();
 
 app.MapControllers();
 

@@ -22,6 +22,7 @@ services:
     networks:
       - authentication-network
       - postgres-network
+      - cache-network
 
   catalogue-service:
     build: 
@@ -35,6 +36,7 @@ services:
     networks:
       - catalogue-network
       - postgres-network
+      - cache-network
 
   cart-service:
     build: 
@@ -48,6 +50,7 @@ services:
     networks:
       - cart-network
       - postgres-network
+      - cache-network
 
   checkout-service:
     build: 
@@ -61,6 +64,7 @@ services:
     networks:
       - checkout-network
       - postgres-network
+      - cache-network
 
 
   client-service:
@@ -99,9 +103,20 @@ services:
       - pgAdmin-network
       - postgres-network
     
+  redis-cache:
+    image: redis
+    environment:
+      - REDIS_PASSWORD=Test123!
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL,CONFIG
+    command: /opt/bitnami/scripts/redis/run.sh --maxmemory 100mb
+    ports:
+      - 6379:6379
+    networks:
+      - cache-network
 
 networks:
   postgres-network:
+  cache-network:
   authentication-network:
   catalogue-network:
   client-network:
