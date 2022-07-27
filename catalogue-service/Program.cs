@@ -1,4 +1,5 @@
 using System.Reflection;
+using System.Security.Cryptography;
 using CatalogueService.Model;
 using CatalogueService.Model.Database;
 using CatalogueService.Model.Database.Types;
@@ -9,8 +10,11 @@ using GraphQL.Types;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 using CatalogueService.Model.Database.Enums;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using Utility.Api.Middlewares;
 using Utility.EFCore;
+using Utility.Extensions;
 using Utility.Other.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,6 +26,29 @@ builder.Services.AddDbContext<CatalogueContext>(options =>
     );
 builder.Services.AddTransient<DbContext>(sp => sp.GetRequiredService<CatalogueContext>());
 
+builder.Services.AddTransient<ValidateJwtMiddleware>();
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {       
+        var rsa = RSA.Create();
+        rsa.ImportRSAPrivateKey(Convert.FromBase64String(builder.Configuration.GetValue<string>("Jwt:PrivateKey")), out _);
+        options.RequireHttpsMetadata = false;
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = !true,
+            ValidateAudience = !true,
+            ValidateIssuer = !true,
+            ValidateLifetime = !true,
+            IssuerSigningKey = new RsaSecurityKey(rsa),
+            // ValidAudience = builder.Configuration.GetValue<string>("Jwt:Audience"),
+            // ValidIssuer = builder.Configuration.GetValue<string>("Jwt:Issuer")
+        };
+    });
+
+builder.Services.AddAuthorization();
+
+builder.AddRedis();
 builder.Services.AddDynamicGraphQL(options =>
 {
     options.Assemblies.Add(Assembly.GetAssembly(typeof(Brand))!);
@@ -78,6 +105,8 @@ app.UseCors();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseMiddleware<ValidateJwtMiddleware>();
 
 app.MapControllers();
 

@@ -1,4 +1,5 @@
 using AuthenticationService.Model.Database.Types;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Utility.Api.Controllers;
@@ -7,6 +8,7 @@ namespace AuthenticationService.Controllers;
 
 [ApiController]
 [Route("users")]
+[Authorize]
 public class UserController : CrudController<User>
 {
     public UserController(DbContext context) : base(context)

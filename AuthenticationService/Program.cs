@@ -17,6 +17,8 @@ builder.Services.AddDbContext<AuthenticationContext>(options =>
     );
 builder.Services.AddTransient<DbContext>(sp => sp.GetRequiredService<AuthenticationContext>());
 
+builder.Services.AddTransient<ValidateJwtMiddleware>();
+
 builder.AddRedis();
 
 builder.Services.AddCors(options =>

@@ -57,7 +57,7 @@ namespace AuthenticationService.Controllers
             };
 
             var (authToken, refreshToken) = Helper.CreateAuthTokenPair(
-                Encoding.UTF8.GetBytes(_config.GetValue<string>("Jwt:PrivateKey")),
+                Convert.FromBase64String(_config.GetValue<string>("Jwt:PrivateKey")),
                 _config.GetValue<string>("Jwt:Issuer"),
                 _config.GetValue<string>("Jwt:Audience"),
                 _config.GetValue<uint>("Jwt:AuthExpiresIn"),
@@ -71,16 +71,16 @@ namespace AuthenticationService.Controllers
                 AuthToken = authToken,
                 RefreshToken = refreshToken,
                 AuthExpiresIn = _config.GetValue<uint>("Jwt:AuthExpiresIn"),
-                RefreshExpiresIn = _config.GetValue<uint>("Jwt:AuthExpiresIn"),
+                RefreshExpiresIn = _config.GetValue<uint>("Jwt:RefreshExpiresIn"),
             };
 
             return res;
         }
         
-        [HttpPost]
+        [HttpPost("refresh")]
         public async Task<ActionResult<AuthenticationResponse>> Refresh ([FromBody] string refreshToken)
         {
-            
+            return Ok();
         }
     }
 }

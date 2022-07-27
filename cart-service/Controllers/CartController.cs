@@ -3,6 +3,7 @@ using CartService.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography.X509Certificates;
+using Microsoft.AspNetCore.Authorization;
 using Utility.EFCore;
 using Utility.Other.Enums;
 using Utility.Other.Extensions;
@@ -11,6 +12,7 @@ namespace CartService.Controllers
 {
     [ApiController]
     [Route("carts")]
+    [Authorize]
     public class CartController : Controller
     {
         private readonly DbContext _context;

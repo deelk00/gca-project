@@ -29,8 +29,14 @@ public class ValidateJwtMiddleware : IMiddleware
     
     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
     {
-        var auth = context.Request.Headers.Authorization.ToString().ToLower();
+        var auth = context.Request.Headers.Authorization.ToString()?.ToLower();
 
+        if (auth == null)
+        {
+            await next.Invoke(context);
+            return;
+        }
+        
         if (auth.StartsWith("bearer "))
         {
             auth = auth[7..];

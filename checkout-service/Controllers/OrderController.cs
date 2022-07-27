@@ -2,6 +2,7 @@
 using CheckoutService.Model.Database.Types;
 using CheckoutService.Model.Requests;
 using CheckoutService.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Utility.EFCore;
@@ -12,6 +13,7 @@ namespace CheckoutService.Controllers
 {
     [ApiController]
     [Route("orders")]
+    [Authorize]
     public class OrderController : Controller
     {
         private readonly DbContext _context;

@@ -108,7 +108,6 @@ services:
     environment:
       - REDIS_PASSWORD=Test123!
       - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL,CONFIG
-    command: /opt/bitnami/scripts/redis/run.sh --maxmemory 100mb
     ports:
       - 6379:6379
     networks:

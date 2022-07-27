@@ -65,7 +65,7 @@ public static class Helper
     {
         var rsa = RSA.Create();
         rsa.ImportRSAPrivateKey(privateKey, out _);
-        var utcNow = DateTime.UtcNow;
+        var utcNow = DateTime.UtcNow.Subtract(new TimeSpan(10000));
         var authUtcEnd = utcNow.AddSeconds(authExpiresIn);
         var signingCredentials = new SigningCredentials(new RsaSecurityKey(rsa), SecurityAlgorithms.RsaSha512);
         var token = new JwtSecurityToken(
